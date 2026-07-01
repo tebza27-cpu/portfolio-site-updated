@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Metasploit Lab Assessment{% endblock %}
+
+{% block content %}
+<section class="detail-hero">
+  <span class="hero-eyebrow">Penetration Test Lab</span>
+  <h1>Metasploit Lab Assessment</h1>
+  <p>Lab-oriented penetration testing documentation demonstrating exploitation methodology and a SOC-style attack overview.</p>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Assessment Overview</h2>
+    <p>This project captures a structured exploitation engagement, showing how an analyst or red teamer evaluates vulnerabilities, executes payloads, and reports findings clearly.</p>
+
+    <h3>Scope</h3>
+    <ul>
+      <li>Automated vulnerability discovery using Metasploit modules.</li>
+      <li>Target exploitation and session management.</li>
+      <li>Evidence capture and remediation guidance.</li>
+    </ul>
+  </div>
+
+  <div class="images">
+    <figure>
+      <img src="{{ url_for('static', filename='images/metasploit_lab_overview.svg') }}" alt="Metasploit lab assessment diagram">
+      <figcaption>Metasploit lab workflow: outlines reconnaissance, exploitation, and session handling in a controlled test environment.</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ url_for('static', filename='images/metasploit_lab_console.svg') }}" alt="Metasploit exploitation console screenshot">
+      <figcaption>Exploitation console screenshot: captures payload execution and open Meterpreter session confirmation.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Analyst-Informed Findings</h2>
+    <ul>
+      <li>Confirmed exploitability of identified CVEs and documented their impact.</li>
+      <li>Captured proof-of-concept sessions and advised on patching priority.</li>
+      <li>Produced a concise final report suitable for both technical and leadership review.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Final Notes</h2>
+    <p>The lab report is presented in a professional format with emphasis on risk reduction, detection capabilities, and remediation roadmaps that align to SOC and security management expectations.</p>
+  </div>
+</section>
+{% endblock %}

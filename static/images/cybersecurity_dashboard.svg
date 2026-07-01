@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 460" role="img" aria-labelledby="title desc">
+<title>Cybersecurity operations dashboard diagram</title>
+<desc>High-level SOC dashboard showing threat categories, incident counts, and detection workflow.</desc>
+<rect width="840" height="460" rx="28" fill="#0f172a"/>
+<g fill="#fff" font-family="Arial, sans-serif">
+  <text x="48" y="56" font-size="30" fill="#38bdf8">SOC Operations Dashboard</text>
+  <rect x="48" y="96" width="320" height="84" rx="18" fill="#1d4ed8"/>
+  <text x="72" y="136" font-size="18">Threat Category</text>
+  <text x="72" y="164" font-size="16" fill="#cbd5e1">Malware, Phishing, Lateral Movement</text>
+  <rect x="392" y="96" width="360" height="84" rx="18" fill="#2563eb"/>
+  <text x="416" y="136" font-size="18">Incident Volume</text>
+  <text x="416" y="164" font-size="16" fill="#cbd5e1">Active alerts, closed cases, and escalation rate</text>
+  <rect x="48" y="210" width="320" height="180" rx="18" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="72" y="250" font-size="18">Detection KPIs</text>
+  <text x="72" y="284" font-size="16" fill="#93c5fd">Mean time to detect</text>
+  <text x="72" y="310" font-size="16" fill="#93c5fd">Mean time to respond</text>
+  <rect x="392" y="210" width="360" height="180" rx="18" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <text x="416" y="250" font-size="18">Workflow</text>
+  <text x="416" y="284" font-size="16" fill="#a5b4fc">Identify → Investigate → Contain → Recover</text>
+  <circle cx="470" cy="330" r="16" fill="#22c55e"/>
+  <text x="496" y="336" font-size="16" fill="#d1d5db">Active SOC analyst review</text>
+  <circle cx="470" cy="370" r="16" fill="#f59e0b"/>
+  <text x="496" y="376" font-size="16" fill="#d1d5db">High-priority alerts</text>
+</g>
+</svg>

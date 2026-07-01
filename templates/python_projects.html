@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container python-projects-page">
+  <div class="page-hero">
+    <div>
+      <span class="eyebrow">Python Projects</span>
+      <h1>CS104 Python Project Runner</h1>
+      <p class="hero-copy">Below is a list of available Python projects. Click the <strong>Run</strong> button for the project you want to execute.</p>
+    </div>
+  </div>
+
+  <div style="margin: 20px 0; padding: 18px; border-radius: 10px; background: #f8fafc; border: 1px solid #dbeafe;">
+    {% if db_enabled %}
+      <strong style="color: #16558a;">Postgres DB active.</strong> Python programs will run against the configured `DATABASE_URL`.
+    {% else %}
+      <strong style="color: #b45309;">Database not configured.</strong> Set `DATABASE_URL` in your environment to enable Postgres-backed execution.
+    {% endif %}
+  </div>
+
+  <section class="project-list">
+    <div class="project-list-header">
+      <h2>Available Python Projects</h2>
+      <button id="refresh-btn" class="refresh-btn">Refresh</button>
+    </div>
+    <div class="project-grid" id="project-grid">
+      {% if files %}
+        {% for f in files %}
+        <article class="project-card" data-filename="{{ f.name }}">
+          <div class="project-card-header">
+            <div>
+              <h3>{{ f.display_name }}</h3>
+              <p class="project-file-name">{{ f.name }}</p>
+            </div>
+            <button class="run-btn" data-fname="{{ f.name }}">Run</button>
+          </div>
+          {% if f.description %}
+          <p class="project-description">{{ f.description }}</p>
+          {% endif %}
+          <div class="output-box" aria-live="polite"></div>
+        </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="empty-state" id="empty-state" style="{% if files %}display:none;{% endif %}">
+      <p>No local Python projects were found in <code>python_programs/</code>. Add one or more <code>.py</code> files and refresh this page.</p>
+    </div>
+  </section>
+
+  <section class="onedrive-links">
+    <h2>OneDrive Course Sources</h2>
+    <p>These folders contain course resources you can view in OneDrive.</p>
+    <div class="link-grid">
+      {% for link in onedrive_links %}
+        <a class="link-card" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<script>
+function buildProjectCard(file, index) {
+  return `
+    <article class="project-card" data-filename="${file.name}">
+      <div class="project-card-header">
+        <div>
+          <h3>${file.display_name}</h3>
+          <p class="project-file-name">${file.name}</p>
+        </div>
+        <button class="run-btn" data-fname="${file.name}">Run</button>
+      </div>
+      ${file.description ? `<p class="project-description">${file.description}</p>` : ''}
+      <div class="output-box" aria-live="polite"></div>
+    </article>
+  `;
+}
+
+async function refreshProjectList() {
+  const grid = document.getElementById('project-grid');
+  const emptyState = document.getElementById('empty-state');
+  const refreshButton = document.getElementById('refresh-btn');
+
+  refreshButton.textContent = 'Refreshing...';
+  refreshButton.disabled = true;
+
+  try {
+    const res = await fetch('/api/python-projects/files');
+    const data = await res.json();
+    if (Array.isArray(data.files) && data.files.length) {
+      grid.innerHTML = data.files.map((file, idx) => buildProjectCard(file, idx)).join('');
+      if (emptyState) emptyState.style.display = 'none';
+    } else {
+      grid.innerHTML = '';
+      if (emptyState) {
+        emptyState.style.display = 'block';
+        emptyState.innerHTML = '<p>No local Python projects were found in <code>python_programs/</code>. Add one or more <code>.py</code> files and refresh this page.</p>';
+      }
+    }
+  } catch (err) {
+    console.error(err);
+  } finally {
+    refreshButton.textContent = 'Refresh';
+    refreshButton.disabled = false;
+  }
+}
+
+document.addEventListener('click', async (e) => {
+  if (e.target.id === 'refresh-btn') {
+    await refreshProjectList();
+    return;
+  }
+
+  if (e.target.classList.contains('run-btn')) {
+    const fname = e.target.dataset.fname;
+    const card = e.target.closest('.project-card');
+    const out = card.querySelector('.output-box');
+    out.classList.add('active');
+    out.textContent = 'Running...';
+
+    try {
+      const res = await fetch('/api/run-python', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: fname })
+      });
+      const data = await res.json();
+      if (data.success) {
+        out.textContent = '';
+        if (data.stdout) out.textContent += data.stdout + '\n';
+        if (data.stderr) out.textContent += '\n--- STDERR ---\n' + data.stderr;
+        out.textContent += '\n\nReturn code: ' + data.returncode;
+      } else if (data.error) {
+        out.textContent = 'Error: ' + data.error;
+      } else {
+        out.textContent = JSON.stringify(data, null, 2);
+      }
+    } catch (err) {
+      out.textContent = 'Request failed: ' + err;
+    }
+  }
+});
+</script>
+
+{% endblock %}

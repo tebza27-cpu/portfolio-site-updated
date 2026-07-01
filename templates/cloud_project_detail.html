@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+<section class="detail-hero proposal-hero">
+  <span class="hero-eyebrow">Cloud Infrastructure Proposal</span>
+  <h1>{{ project.title }}</h1>
+  <p>{{ project.summary }}</p>
+  <p class="hero-tagline">Prepared by Sifiso Mokhele — for automotive retail modernization.</p>
+  <div class="hero-badges">
+    <span>Hybrid Cloud Architecture</span>
+    <span>Security & Compliance</span>
+    <span>Digital Dealer Ecosystem</span>
+  </div>
+</section>
+
+<section class="proposal-intro detail-grid">
+  <div class="summary">
+    <h2>Proposal Snapshot</h2>
+    <p>This proposal is designed for Keyloop’s automotive retail ecosystem. It presents a hybrid cloud strategy that supports dealer management, CRM, analytics and customer-facing applications while ensuring regional compliance, operational resiliency and secure data governance.</p>
+
+    <h3>What this proposal delivers</h3>
+    <ul>
+      <li>Secure hybrid cloud architecture for global operations.</li>
+      <li>Governance, SLA and compliance controls aligned to GDPR and POPIA.</li>
+      <li>Resilient networking, storage and disaster recovery design.</li>
+      <li>Phased migration and vendor selection strategy for execution confidence.</li>
+    </ul>
+
+    <h3>Alignment with Keyloop</h3>
+    <p>Keyloop’s digital retail vision depends on connected DMS, CRM and analytics services. This architecture enables regional data sovereignty for sensitive dealership records while supporting scalable public-cloud services for customer portals, analytics and digital sales workflows.</p>
+    <p>It is designed to support connected dealer management, service workflows and customer experience capabilities similar to Keyloop DMS, Service Hub and analytics-driven retail operations.</p>
+
+    <h3>Supporting document</h3>
+    <ul>
+      {% for attachment in project.attachments %}
+        <li>
+          {% if attachment.lower().endswith('.docx') %}
+            <a href="{{ url_for('cloud_attachment', filename=attachment) }}">Download {{ attachment }}</a>
+          {% else %}
+            {{ attachment }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="proposal-hero-image">
+    {% if project.images %}
+      <figure>
+        <img src="{{ url_for('static', filename=project.images[0].replace('\\', '/')) }}" alt="Cloud infrastructure overview">
+        <figcaption>Proposed hybrid cloud infrastructure for global dealership operations.</figcaption>
+      </figure>
+    {% else %}
+      <figure>
+        <img src="{{ url_for('static', filename=project.image) }}" alt="Cloud proposal overview">
+        <figcaption>{{ project.title }} architecture summary.</figcaption>
+      </figure>
+    {% endif %}
+  </div>
+</section>
+
+<section class="detail-grid proposal-roi">
+  <div class="summary roi-summary">
+    <h2>Key Benefits & ROI</h2>
+    <p>This hybrid cloud design is positioned to deliver measurable value for Keyloop’s automotive retail ecosystem through improved performance, security, and cost efficiency.</p>
+    <ul>
+      <li>Reduce infrastructure cost by migrating regional workloads to cloud-managed services.</li>
+      <li>Target 99.95%+ availability for dealer management, CRM, and analytics systems.</li>
+      <li>Strengthen data sovereignty and compliance across GDPR and POPIA regions.</li>
+      <li>Scale digital retail services faster with modern cloud deployment and automation.</li>
+    </ul>
+  </div>
+  <div class="summary roi-metrics">
+    <div class="metric">
+      <strong>99.95%</strong>
+      <span>uptime target for critical cloud workloads</span>
+    </div>
+    <div class="metric">
+      <strong>30%</strong>
+      <span>estimated reduction in CapEx through hybrid cloud adoption</span>
+    </div>
+    <div class="metric">
+      <strong>100%</strong>
+      <span>compliance-ready coverage for GDPR and POPIA controls</span>
+    </div>
+  </div>
+</section>
+
+<section class="proposal-details">
+  {% for group in project.section_groups %}
+    <article class="proposal-section {% if loop.index0 is odd %}reverse{% endif %}">
+      <div class="proposal-copy">
+        <h3>{{ group.title }}</h3>
+        {% for line in group.content %}
+          <p>{{ line }}</p>
+        {% endfor %}
+      </div>
+      <div class="proposal-visual">
+        {% set visual = project.images[loop.index0] if project.images and loop.index0 < project.images|length else project.image %}
+        <figure>
+          <img src="{{ url_for('static', filename=visual.replace('\\', '/')) }}" alt="{{ group.title }} diagram">
+          <figcaption>{{ group.title }} visual alignment.</figcaption>
+        </figure>
+      </div>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="detail-grid proposal-outcome">
+  <div class="summary">
+    <h2>Delivery Confidence</h2>
+    <p>By combining clear hybrid cloud design, governance controls and a phased rollout approach, this proposal is ready to guide Keyloop’s next cloud infrastructure implementation. The architecture is built to protect sensitive dealership data while enabling modern customer-facing digital services.</p>
+
+    <h3>Key recommendations</h3>
+    <ul>
+      <li>Perform a pilot migration for selected dealership workloads before full rollout.</li>
+      <li>Implement strong identity, access and monitoring controls from day one.</li>
+      <li>Choose cloud vendors with proven automotive retail SLAs and regional compliance coverage.</li>
+      <li>Establish quarterly recovery and compliance reviews.</li>
+      <li>Use CDN and multi-region networking to optimize performance for global users.</li>
+      <li>Prioritize integration readiness for DMS, CRM and analytics systems to maximize ROI.</li>
+    </ul>
+  </div>
+</section>
+{% endblock %}

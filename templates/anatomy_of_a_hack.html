@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Anatomy of a Hack{% endblock %}
+
+{% block content %}
+<section class="detail-hero">
+  <span class="hero-eyebrow">Attack Analysis</span>
+  <h1>Anatomy of a Hack</h1>
+  <p>A detailed SOC-style breakdown of a real-world attack chain, from initial reconnaissance through compromise containment.</p>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Project Narrative</h2>
+    <p>This analysis follows a structured incident handling workflow to preserve evidence, map attacker behavior, and translate technical findings into actionable recommendations.</p>
+
+    <h3>Investigation Focus</h3>
+    <ul>
+      <li>Reconnaissance and attack surface enumeration.</li>
+      <li>Initial access and privilege escalation sequence.</li>
+      <li>Post-exploitation persistence, lateral movement, and data exfiltration.</li>
+    </ul>
+  </div>
+
+  <div class="images">
+    <figure>
+      <img src="{{ url_for('static', filename='images/anatomy_of_a_hack_overview.svg') }}" alt="Attack chain overview diagram">
+      <figcaption>Attack chain overview: reconnaissance leads into initial access, then post-exploitation detection opportunities are mapped.</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ url_for('static', filename='images/anatomy_of_a_hack_console.svg') }}" alt="Attack analysis console screenshot">
+      <figcaption>Analysis console output: shows command-level reconnaissance results and evidence summary for incident review.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Findings</h2>
+    <ol>
+      <li>Identified adversarial reconnaissance vectors and exploited exposed services.</li>
+      <li>Documented the breach chain and mapped each phase to detection opportunities.</li>
+      <li>Recommended control improvements to harden host and network defenses.</li>
+    </ol>
+
+    <h3>SOC Analyst Value</h3>
+    <ul>
+      <li>Clear attack stage documentation for incident response playbooks.</li>
+      <li>Rapid triage support using prioritized detection points.</li>
+      <li>Evidence-backed reporting suitable for tabletop and remediation review.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Security Recommendations</h2>
+    <p>The write-up highlights critical improvements such as network segmentation, endpoint monitoring, and alert tuning to detect the same attack chain earlier in the lifecycle.</p>
+  </div>
+</section>
+{% endblock %}

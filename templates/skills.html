@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+  <h1>Skills</h1>
+  <p>
+    My strongest capabilities for Technical Support and Application Support roles include troubleshooting,
+    incident response, networking fundamentals, Windows and Linux administration, cloud awareness,
+    and practical problem-solving through hands-on projects.
+  </p>
+  {% if skills %}
+    {% for section in skills %}
+      <section class="skill-section">
+        <h2>{{ section.title }}</h2>
+        {% if section.description %}
+          <p>{{ section.description }}</p>
+        {% endif %}
+        <ul>
+          {% for item in section['items'] %}
+            <li>
+              <strong>{{ item.name }}</strong>
+              {% if item.description %}
+                — {{ item.description }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  {% else %}
+    <p>No skills found yet. Add a skill via the API to populate this page.</p>
+  {% endif %}
+</div>
+
+{% endblock %}

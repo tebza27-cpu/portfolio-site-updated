@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <a href="/byu" style="text-decoration: underline;">← Back to BYU Studies</a>
+    <h1>{{ course.title }}</h1>
+    <p><strong>Certificate:</strong> {{ course.certificate }}</p>
+    
+    <h2>About This Course</h2>
+    <p>{{ course.description }}</p>
+    
+    <p>
+        <a href="{{ course.url }}" target="_blank" style="text-decoration: underline;">
+            View on BYU Pathway →
+        </a>
+    </p>
+
+    {% if course_materials %}
+    <hr>
+    <h2>Course Projects & Assignments</h2>
+    
+    {% if course_materials.type == 'local' %}
+    <p><strong>View course materials:</strong> <code>{{ course_materials.path }}</code></p>
+    <p style="font-size: 0.9em; color: #666;">
+        Accessing from local network: showing folder on this machine.
+    </p>
+    {% elif course_materials.type == 'cloud' %}
+    <p>
+        <a href="{{ course_materials.url }}" target="_blank" style="text-decoration: underline;">
+            View course materials on OneDrive →
+        </a>
+    </p>
+    <p style="font-size: 0.9em; color: #666;">
+        Accessing remotely: viewing shared OneDrive folder.
+    </p>
+    {% endif %}
+    
+    <p style="font-size: 0.85em; color: #999; margin-top: 1em;">
+        <em>Course projects and assignments are stored locally and synced to cloud storage for remote access.</em>
+    </p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

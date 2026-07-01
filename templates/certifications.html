@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+  <h1>Certifications & Credentials</h1>
+  <p>These credentials and learning tracks reflect my pathway in IT support, networking, cloud, and cybersecurity, with a strong focus on practical growth and employability for support-focused roles.</p>
+</div>
+
+<div class="certificate-tabs">
+  {% for cert in certificates %}
+    <button class="cert-tab{% if loop.first %} active{% endif %}" data-target="{{ cert.id }}">{{ cert.title }}</button>
+  {% endfor %}
+</div>
+
+<div class="certificate-panels">
+  {% for cert in certificates %}
+    <section class="certificate-panel{% if not loop.first %} hidden{% endif %}" id="{{ cert.id }}">
+      <div class="card">
+        <div class="cert-header">
+          <div>
+            <h2>{{ cert.title }}</h2>
+            {% if cert.certificate_file %}
+              <a href="{{ cert.certificate_file }}" target="_blank" class="btn cert-file-btn">Download Certificate</a>
+            {% endif %}
+          </div>
+          <p>{{ cert.summary }}</p>
+        </div>
+        <p class="status">{{ cert.detail }}</p>
+        <div class="certificate-summary">
+          <span class="certificate-status {{ cert.status|lower|replace(' ', '-') }}">{{ cert.status }}</span>
+          <span>{{ cert.completed }} of {{ cert.total }} courses complete</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Courses in this certificate</h3>
+        <ul class="certificate-course-list">
+          {% for course in cert.courses %}
+            <li class="course-item {{ course.note|lower|replace(' ', '-') }}">
+              <div>
+                {% if course.url %}
+                  <a href="{{ course.url }}">{{ course.title }}</a>
+                {% else %}
+                  {{ course.title }}
+                {% endif %}
+              </div>
+              <span class="course-status {{ course.note|lower|replace(' ', '-') }}">
+                {{ course.note }}{% if course.grade %} • {{ course.grade }}{% endif %}
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+  {% endfor %}
+</div>
+
+<div class="card callout-card">
+  <h2>Degree Pathway</h2>
+  <p>The Information Technology degree is built from these certificate tracks. This view focuses on one certificate at a time so employers and reviewers can quickly see which courses are relevant and the exact progress through that certificate.</p>
+  <p><a href="/byu">View the full BYU degree progress page</a></p>
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.cert-tab');
+const panels = document.querySelectorAll('.certificate-panel');
+
+function activateCertificate(targetId) {
+  tabs.forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.target === targetId);
+  });
+  panels.forEach(panel => {
+    panel.classList.toggle('hidden', panel.id !== targetId);
+  });
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => activateCertificate(tab.dataset.target));
+});
+</script>
+
+{% endblock %}

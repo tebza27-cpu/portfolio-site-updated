@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Academic & Technical Development",
+    "description": "Actively building advanced skills in academic and technical domains.",
+    "items": [
+      {
+        "name": "Network Design & Configuration",
+        "description": "Designing, troubleshooting, and securing networks for reliable operations."
+      },
+      {
+        "name": "Cloud Computing",
+        "description": "Working with cloud infrastructure and services for deployment and automation."
+      },
+      {
+        "name": "Cybersecurity",
+        "description": "Implementing security controls, monitoring, and incident response practices."
+      },
+      {
+        "name": "Python Development",
+        "description": "Writing scripts and applications for automation, data analysis, and tooling."
+      },
+      {
+        "name": "Linux Administration",
+        "description": "Managing Linux servers, deployments, and shell-based workflows."
+      }
+    ]
+  },
+  {
+    "title": "Professional Skills",
+    "description": "Business and communication strengths for team and stakeholder work.",
+    "items": [
+      {
+        "name": "Team Leadership & Service Delivery Management",
+        "description": "Coordinating teams and managing IT service delivery across projects."
+      },
+      {
+        "name": "Root Cause Analysis & Problem Solving",
+        "description": "Identifying issues quickly and resolving them with effective solutions."
+      },
+      {
+        "name": "Customer Support & Stakeholder Communication",
+        "description": "Maintaining strong client relationships through clear communication."
+      },
+      {
+        "name": "Process Improvement & Business Analysis",
+        "description": "Optimizing workflows and translating business needs into technical actions."
+      }
+    ]
+  }
+]

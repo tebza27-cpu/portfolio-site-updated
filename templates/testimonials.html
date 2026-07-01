@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h1>Testimonials</h1>
+  <p>This page highlights endorsements from colleagues, mentors, and instructors. Only invited contacts can submit a testimonial using the secure link they receive.</p>
+  <p><a href="/testimonials/manage" class="btn">Manage testimonial invites</a></p>
+</div>
+
+{% if testimonials %}
+  <div class="testimonial-grid">
+    {% for item in testimonials %}
+      <div class="testimonial-card">
+        <blockquote>“{{ item.quote }}”</blockquote>
+        <div class="testimonial-meta">
+          <strong>{{ item.name }}</strong>
+          {% if item.role or item.company %}
+            <div>{{ item.role }}{% if item.role and item.company %}, {% endif %}{{ item.company }}</div>
+          {% endif %}
+          {% if item.relationship %}
+            <div>{{ item.relationship }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="card">
+    <p>No testimonials have been submitted yet.</p>
+  </div>
+{% endif %}
+{% endblock %}

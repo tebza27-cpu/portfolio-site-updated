@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h1>Submit a Testimonial</h1>
+  {% if error %}
+    <div class="notice error">{{ error }}</div>
+  {% endif %}
+  {% if success %}
+    <div class="notice success">{{ success }}</div>
+  {% endif %}
+
+  {% if invite and not invite.used_at %}
+    <p>Please confirm your identity using the email or phone number from your invitation, then share your testimonial.</p>
+    <form method="post" class="testimonial-form">
+      <input type="hidden" name="token" value="{{ invite.token }}">
+      <input type="email" name="email" placeholder="Email address" required>
+      <input type="text" name="phone" placeholder="Phone number">
+      <input type="text" name="company" placeholder="Company or organization">
+      <input type="text" name="role" placeholder="Your role or title">
+      <textarea name="quote" rows="5" placeholder="Write your testimonial here" required></textarea>
+      <button type="submit">Submit testimonial</button>
+    </form>
+  {% elif invite and invite.used_at %}
+    <p>This invitation is already complete.</p>
+  {% endif %}
+</div>
+{% endblock %}

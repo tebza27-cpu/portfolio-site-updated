@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}BI Project Portfolio{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>Business Intelligence Project Portfolio</h1>
+  <p>Structured BI assignments organized by week with dedicated detail pages for each project and supporting source assets.</p>
+</section>
+
+<section class="project-summary-grid">
+  {% for project in detail_projects %}
+    <article class="project-card">
+      <div class="project-card-header">
+        <h2>{{ project.title }}</h2>
+        <span class="project-tag">{{ project.tag }}</span>
+      </div>
+      <p>{{ project.summary }}</p>
+      <ul>
+        {% for item in project.focus %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      <div class="project-thumbnails">
+        <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }} overview">
+      </div>
+      <p><a href="{{ url_for('bi_project_detail', slug=project.slug) }}" class="button-link">View full project details</a></p>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="page-header" style="margin-top: 40px;">
+  <h2>Source Documents and BI Assets</h2>
+  <p>External assets seeded from the BI projects database, including Power BI source files, reports, and reference materials.</p>
+</section>
+
+<section class="project-summary-grid">
+  {% for project in projects %}
+    <article class="project-card">
+      <div class="project-card-header">
+        <h2>{{ project.title }}</h2>
+        <span class="project-tag">{{ project.asset_type or 'BI Asset' }}</span>
+      </div>
+      <p>{{ project.description or 'No description provided.' }}</p>
+      <p style="color: #475569;"><strong>Source:</strong> {{ project.source or 'BYU Pathway' }}</p>
+      <p><a href="{{ project.link }}" target="_blank" rel="noopener" class="button-link">Open asset</a></p>
+    </article>
+  {% endfor %}
+</section>
+
+{% if not db_enabled %}
+  <div class="detail-grid" style="margin-top: 24px;">
+    <div class="summary" style="background: #fef2f2; border-color: #fecaca; color: #991b1b;">
+      <h3>Database Not Enabled</h3>
+      <p>The BI project page still shows the static weekly project summaries. Set <code>DATABASE_URL</code> in Render environment variables to enable the seeded BI asset list from Postgres.</p>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

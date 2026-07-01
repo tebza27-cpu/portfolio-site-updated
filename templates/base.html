@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sifiso Mokhele | Technical Support & IT Professional</title>
+    <meta name="description" content="Sifiso Mokhele is an IT Support and Systems Professional with 18+ years of experience and a growing focus in technical support, networking, cloud, Linux, databases, and cybersecurity.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+<nav>
+    <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+    <a href="/about" class="{% if request.path == '/about' %}active{% endif %}">About</a>
+    <a href="/cv" class="{% if request.path == '/cv' %}active{% endif %}">CV</a>
+    <a href="/support" class="{% if request.path == '/support' %}active{% endif %}">Support</a>
+    <a href="/byu" class="{% if request.path == '/byu' %}active{% endif %}">BYU Studies</a>
+    <a href="/cloud" class="{% if request.path == '/cloud' %}active{% endif %}">Cloud</a>
+    <a href="/cybersecurity" class="{% if request.path == '/cybersecurity' %}active{% endif %}">Cybersecurity</a>
+    <a href="/projects" class="{% if request.path == '/projects' %}active{% endif %}">Projects</a>
+    <a href="/bi-projects" class="{% if request.path == '/bi-projects' %}active{% endif %}">BI Projects</a>
+    <a href="/python-projects" class="{% if request.path == '/python-projects' %}active{% endif %}">Python Projects</a>
+    <a href="/skills" class="{% if request.path == '/skills' %}active{% endif %}">Skills</a>
+    <a href="/timeline" class="{% if request.path == '/timeline' %}active{% endif %}">Timeline</a>
+    <a href="/certifications" class="{% if request.path == '/certifications' %}active{% endif %}">Certifications</a>
+    <a href="/testimonials" class="{% if request.path.startswith('/testimonials') %}active{% endif %}">Testimonials</a>
+    <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a>
+</nav>
+
+<div class="container">
+{% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

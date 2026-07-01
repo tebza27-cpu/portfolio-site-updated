@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="page-header cloud-hero">
+  <div class="hero-copy">
+    <span class="hero-eyebrow">Cloud Architecture Case Study</span>
+    <h1>Keyloop Hybrid Cloud Infrastructure</h1>
+    <p>Executive cloud proposal for automotive retail operations. This case study highlights a secure, resilient hybrid cloud solution designed to support dealer management, CRM, analytics, and customer-facing services across GDPR and POPIA regions.</p>
+    <div class="hero-pill-grid">
+      <span>Hybrid Cloud</span>
+      <span>Data Sovereignty</span>
+      <span>Resilient Operations</span>
+      <span>ROI Focus</span>
+    </div>
+  </div>
+</section>
+
+<section class="project-summary-grid">
+  {% for project in projects %}
+    <article class="project-card project-card-summary">
+      <div class="project-card-header">
+        <div>
+          <h2>{{ project.title }}</h2>
+          <p class="project-subtitle">{{ project.industry }} cloud proposal for {{ project.client }}</p>
+        </div>
+        <span class="project-tag">{{ project.tag }}</span>
+      </div>
+      <div class="project-card-image">
+        <img src="{{ url_for('static', filename=(project.images[0] if project.images else project.image).replace('\\', '/')) }}" alt="{{ project.title }} overview">
+      </div>
+      <div class="project-card-body">
+        <p class="project-overview">{{ project.summary }}</p>
+        <div class="project-highlights">
+          <h3>Strategic focus</h3>
+          <ul>
+            {% for item in project.focus %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="project-case-study">
+          <h4>{{ project.case_study.title }}</h4>
+          <p>{{ project.case_study.subtitle }}</p>
+          <ul>
+            {% for point in project.case_study.points %}
+              <li>{{ point }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <p><a href="{{ url_for('cloud_project_detail', slug=project.slug) }}" class="button-link">View full proposal</a></p>
+      </div>
+    </article>
+  {% endfor %}
+</section>
+
+{% endblock %}

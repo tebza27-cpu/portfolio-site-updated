@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}HIDS Agent Registration with SIEM{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>HIDS Agent Registration with SIEM Console</h1>
+  <p>Detailed documentation of a cybersecurity project that registers a HIDS agent into a SIEM platform, configures event sources, and validates detection workflows.</p>
+</section>
+
+<section class="project-details">
+  <h2>Project Overview</h2>
+  <p>The goal was to enable secure onboarding of a Host-based Intrusion Detection System (HIDS) agent into a Security Information and Event Management (SIEM) system while ensuring event integrity, alert correlation, and visibility across monitored endpoints.</p>
+
+  <h3>Key Objectives</h3>
+  <ul>
+    <li>Register HIDS agents with the SIEM console securely.</li>
+    <li>Map log sources and define event categories.</li>
+    <li>Verify event ingestion, detection rules, and alert generation.</li>
+    <li>Document procedures for deployment, monitoring, and incident response.</li>
+  </ul>
+
+  <h3>Project Workflow</h3>
+  <p>The workflow included preparing the HIDS agent, connecting it to the SIEM, validating the registration, and then testing event collection by generating representative alerts from the agent-host.</p>
+  <figure>
+    <img src="{{ url_for('static', filename='images/hids_siem_overview.svg') }}" alt="HIDS and SIEM workflow diagram">
+    <figcaption>HIDS-to-SIEM workflow: shows secure agent onboarding, event source mapping, and alert ingestion into the monitoring platform.</figcaption>
+  </figure>
+
+  <h3>Implementation Highlights</h3>
+  <ol>
+    <li>Installed and configured the HIDS client on the endpoint.</li>
+    <li>Registered the HIDS agent in the SIEM console with proper credentials and group assignment.</li>
+    <li>Defined event filters and normalization rules inside the SIEM.</li>
+    <li>Performed test detections and confirmed alert flow to the security operations team.</li>
+  </ol>
+
+  <div class="project-images">
+    <figure>
+      <img src="{{ url_for('static', filename='images/hids_siem_registration.svg') }}" alt="HIDS registration process diagram">
+      <figcaption>HIDS registration process diagram: shows the secure onboarding flow from the endpoint agent to the SIEM console.</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ url_for('static', filename='images/hids_siem_console.svg') }}" alt="SIEM console with registered agent">
+      <figcaption>SIEM console screenshot: confirms the agent is registered and visible to the security operations platform.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Artifact Evidence</h3>
+  <p>The following artifacts support the documented integration stages: installation, secure registration, event ingestion, alert validation, and SOC readiness.</p>
+  <p><a href="{{ url_for('cloud_attachment', filename='Project 10 Register a HIDS Agent with a Security Information Event Management (SIEM) Console.docx') }}" class="btn">Download Project Document</a></p>
+  <div class="project-images">
+    {% set captions = [
+      'Installation and configuration log evidence.',
+      'Secure agent onboarding confirmation.',
+      'SIEM event source mapping and normalization.',
+      'Detection rule execution and alert ingestion.',
+      'Alert timeline and incident visibility evidence.',
+      'Final validation of the HIDS/SIEM integration.'
+    ] %}
+    {% for image in project_images %}
+      <figure>
+        <img src="{{ url_for('static', filename='images/hids_siem_project/' ~ image) }}" alt="HIDS project artifact {{ loop.index }}">
+        <figcaption>{{ captions[loop.index0 % captions|length] }}</figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+
+  <h3>Outcome</h3>
+  <p>The project produced a working HIDS-to-SIEM integration with documented registration steps, validated event ingestion, and a repeatable process for future agent onboarding. This strengthens endpoint monitoring and incident detection capabilities.</p>
+</section>
+{% endblock %}

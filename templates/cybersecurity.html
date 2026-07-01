@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Cybersecurity Projects{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <h1>Cybersecurity Project Portfolio</h1>
+  <p>Three SOC analyst-led cybersecurity projects, each with a dedicated detail page and professional incident response documentation.</p>
+</section>
+
+<section class="project-summary-grid">
+  <article class="project-card">
+    <div class="project-card-header">
+      <h2>HIDS Agent Registration with SIEM</h2>
+      <span class="project-tag">Detection Integration</span>
+    </div>
+    <p>Host-based intrusion detection systems integrated with a SIEM console to centralize event collection and incident alerting.</p>
+    <ul>
+      <li>Agent onboarding and secure registration.</li>
+      <li>Event source mapping and correlation.</li>
+      <li>Validated alert flow for SOC triage.</li>
+    </ul>
+    <div class="project-thumbnails">
+      <img src="{{ url_for('static', filename='images/hids_siem_overview.svg') }}" alt="HIDS to SIEM workflow diagram">
+    </div>
+    <p><a href="{{ url_for('hids_siem') }}" class="button-link">View full project details</a></p>
+  </article>
+
+  <article class="project-card">
+    <div class="project-card-header">
+      <h2>Anatomy of a Hack - Nmap Recon</h2>
+      <span class="project-tag">Threat Reconnaissance</span>
+    </div>
+    <p>Structured host discovery and service enumeration using Nmap, followed by analysis of exploit surface and attack vector mapping.</p>
+    <ul>
+      <li>Network scanning and port analysis.</li>
+      <li>Service identification and version fingerprinting.</li>
+      <li>Exposure assessment for targeted response.</li>
+    </ul>
+    <div class="project-thumbnails">
+      <img src="{{ url_for('static', filename='images/anatomy_of_a_hack_overview.svg') }}" alt="Attack chain overview diagram">
+    </div>
+    <p><a href="{{ url_for('anatomy_of_a_hack') }}" class="button-link">View full project details</a></p>
+  </article>
+
+  <article class="project-card">
+    <div class="project-card-header">
+      <h2>Using Kali Linux (Metasploit Lab)</h2>
+      <span class="project-tag">Exploit Development</span>
+    </div>
+    <p>Proven use of Kali Linux and Metasploit for exploit execution, payload delivery, and privilege escalation in a lab environment.</p>
+    <ul>
+      <li>Exploitation framework setup and target preparation.</li>
+      <li>Payload selection and session management.</li>
+      <li>Evidence collection and remediation recommendations.</li>
+    </ul>
+    <div class="project-thumbnails">
+      <img src="{{ url_for('static', filename='images/metasploit_lab_overview.svg') }}" alt="Metasploit lab operations diagram">
+    </div>
+    <p><a href="{{ url_for('metasploit_lab') }}" class="button-link">View full project details</a></p>
+  </article>
+
+  <article class="project-card">
+    <div class="project-card-header">
+      <h2>Cybersecurity Operations Dashboard</h2>
+      <span class="project-tag">SOC Visualization</span>
+    </div>
+    <p>Designed and documented a SOC-ready operations dashboard for detection monitoring, incident alerting, and executive-level security reporting.</p>
+    <ul>
+      <li>Dashboard visualization for incident prioritization.</li>
+      <li>Operational KPIs aligned with SOC responsibilities.</li>
+      <li>Threat hunting and incident response support metrics.</li>
+    </ul>
+    <div class="project-thumbnails">
+      <img src="{{ url_for('static', filename='images/cybersecurity_dashboard.svg') }}" alt="Cybersecurity operations dashboard overview diagram">
+    </div>
+    <p><a href="{{ url_for('cybersecurity_dashboard') }}" class="button-link">View full project details</a></p>
+  </article>
+</section>
+{% endblock %}

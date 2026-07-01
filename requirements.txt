@@ -1,0 +1,6 @@
+flask
+gunicorn
+twilio
+requests
+python-dotenv
+psycopg2-binary

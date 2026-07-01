@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Cybersecurity Operations Dashboard{% endblock %}
+
+{% block content %}
+<section class="detail-hero">
+  <span class="hero-eyebrow">SOC Analyst Project</span>
+  <h1>Cybersecurity Operations Dashboard</h1>
+  <p>Comprehensive lab-based threat hunting, vulnerability discovery, and SOC visualization built for an employer-ready security operations narrative.</p>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Project Summary</h2>
+    <p>This project documents a cybersecurity operations workflow performed in a simulated lab environment. The mission focused on threat detection, event visualization, and prioritized analyst response, matching the expectations of a Security Operations Center (SOC).</p>
+
+    <h3>Key Deliverables</h3>
+    <ul>
+      <li>Network reconnaissance and vulnerability assessment using active scanning tools.</li>
+      <li>Incident detection through dashboard visualization and alert analysis.</li>
+      <li>Security metrics for triage, threat attribution, and business-impact reporting.</li>
+    </ul>
+
+    <h3>Security Outcome</h3>
+    <p>Delivered a polished reporting package for executive and technical stakeholders, emphasizing actionable findings, risk prioritization, and remediation guidance for an enterprise-like environment.</p>
+  </div>
+
+  <div class="images">
+    <figure>
+      <img src="{{ url_for('static', filename='images/cybersecurity_dashboard.svg') }}" alt="Cybersecurity operations dashboard overview diagram">
+      <figcaption>Dashboard overview: displays KPI summaries and alert categories used for SOC decision-making.</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ url_for('static', filename='images/hids_siem_overview.svg') }}" alt="SOC threat detection architecture">
+      <figcaption>Threat detection architecture: shows how HIDS telemetry is ingested into the SIEM for correlation and analysis.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Analyst Workflow</h2>
+    <ol>
+      <li>Baseline network mapping with asset discovery and service enumeration.</li>
+      <li>Correlated suspicious activity against known adversary behavior.</li>
+      <li>Validated detection scenarios using a simulated compromise.</li>
+      <li>Compiled dashboard visuals to support SOC incident response.</li>
+    </ol>
+
+    <h3>Tools & Techniques</h3>
+    <ul>
+      <li>Network mapping and host enumeration</li>
+      <li>Event collection and log normalization</li>
+      <li>Alert rule tuning and incident workflow documentation</li>
+    </ul>
+  </div>
+
+  <div class="images">
+    <figure>
+      <img src="{{ url_for('static', filename='images/cybersecurity_dashboard.svg') }}" alt="SOC operations visualization">
+      <figcaption>SOC operations visualization: highlights incident status and monitoring context used for analyst workflows.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Executive Summary</h2>
+    <p>This engagement demonstrates a strong SOC analyst mindset: monitoring environment health, identifying threat signals, and packaging findings into professional operational outputs. The work was designed to impress a hiring manager looking for security operations capability, pragmatic incident response, and risk-focused communication.</p>
+  </div>
+</section>
+{% endblock %}

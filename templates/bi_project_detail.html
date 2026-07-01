@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+<section class="detail-hero">
+  <span class="hero-eyebrow">BI Project Detail</span>
+  <h1>{{ project.title }}</h1>
+  <p>{{ project.summary }}</p>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Project Focus</h2>
+    <ul>
+      {% for item in project.focus %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Asset Overview</h3>
+    <p>{{ project.asset_description }}</p>
+    {% if project.asset_link %}
+      <p><a href="{{ project.asset_link }}" target="_blank" rel="noopener" class="button-link">Open supporting BI asset</a></p>
+    {% endif %}
+
+    <h3>Documents Included</h3>
+    <ul>
+      {% for attachment in project.attachments %}
+        <li>{{ attachment }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="images">
+    <figure>
+      <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }} overview image">
+      <figcaption>{{ project.title }} overview: the workflow and reporting intent for this BI assignment.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="detail-grid">
+  <div class="summary">
+    <h2>Professional Presentation</h2>
+    <p>This page is designed like a BI report dossier, making the weekly assignments easy to navigate and giving stakeholders direct access to the source materials by project.</p>
+  </div>
+</section>
+{% endblock %}

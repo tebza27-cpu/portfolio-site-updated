@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+<title>Anatomy of a Hack console screenshot</title>
+<desc>Mocked terminal output and analysis dashboard for attack assessment.</desc>
+<rect width="720" height="400" rx="24" fill="#111827"/>
+<rect x="32" y="32" width="656" height="48" rx="12" fill="#1f2937"/>
+<circle cx="64" cy="56" r="8" fill="#ef4444"/>
+<circle cx="96" cy="56" r="8" fill="#f59e0b"/>
+<circle cx="128" cy="56" r="8" fill="#10b981"/>
+<rect x="40" y="96" width="640" height="280" rx="16" fill="#111827" stroke="#374151" stroke-width="2"/>
+<text x="64" y="132" fill="#d1d5db" font-family="Courier New, monospace" font-size="18">$ nmap -sV -p- 10.0.0.15</text>
+<text x="64" y="162" fill="#9ca3af" font-family="Courier New, monospace" font-size="16">Starting Nmap 7.80 ( https://nmap.org ) at 2026-06-15 12:03</text>
+<text x="64" y="192" fill="#d1d5db" font-family="Courier New, monospace" font-size="16">22/tcp open ssh OpenSSH 8.2p1</text>
+<text x="64" y="218" fill="#d1d5db" font-family="Courier New, monospace" font-size="16">80/tcp open http Apache httpd 2.4.41</text>
+<text x="64" y="244" fill="#d1d5db" font-family="Courier New, monospace" font-size="16">445/tcp open microsoft-ds Microsoft Windows</text>
+<text x="64" y="280" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="16">Analysis: service enumeration indicates attack surface for exploitation and lateral movement.</text>
+</svg>

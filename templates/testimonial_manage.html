@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h1>Manage Testimonials</h1>
+  <p>Create an invitation for someone you want to provide a testimonial. Only the person with the invitation link can submit content.</p>
+
+  {% if error %}
+    <div class="notice error">{{ error }}</div>
+  {% endif %}
+  {% if success %}
+    <div class="notice success">{{ success }}</div>
+  {% endif %}
+
+  <form method="post" class="invite-form">
+    <input type="text" name="name" placeholder="Full name" required>
+    <input type="email" name="email" placeholder="Email address">
+    <input type="text" name="phone" placeholder="Phone number">
+    <input type="text" name="relationship" placeholder="Relationship (e.g. Lecturer)">
+    <textarea name="note" rows="3" placeholder="Optional note for your reference"></textarea>
+    <button type="submit">Create invitation</button>
+  </form>
+
+  {% if new_invite %}
+    <div class="notice">
+      <strong>Submission link</strong>
+      <div class="invite-url">{{ submit_url }}</div>
+    </div>
+  {% endif %}
+</div>
+
+<div class="card">
+  <h2>Invitations</h2>
+  {% if invites %}
+    <ul class="invite-list">
+      {% for invite in invites %}
+        <li>
+          <strong>{{ invite.name }}</strong>
+          {% if invite.email %}<div>Email: {{ invite.email }}</div>{% endif %}
+          {% if invite.phone %}<div>Phone: {{ invite.phone }}</div>{% endif %}
+          {% if invite.relationship %}<div>Relationship: {{ invite.relationship }}</div>{% endif %}
+          <div>Status: {% if invite.used_at %}Used{% else %}Pending{% endif %}</div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No invitations have been created yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

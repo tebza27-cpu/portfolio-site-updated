@@ -1,0 +1,362 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #051620;
+  color: #e8f4ff;
+}
+
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #051620, #07335d);
+  color: #f8fafc;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin: 12px 0;
+  line-height: 1.75;
+  color: #e8f0ff;
+}
+
+.hero-summary {
+  margin: 24px auto 0;
+  max-width: 760px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #f0f7ff;
+}
+
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.highlight-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+.highlight-card strong {
+  display: block;
+  color: #38bdf8;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 14px 26px;
+  background: #38bdf8;
+  color: #0b1120;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.btn:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+section {
+  padding: 60px 24px;
+  max-width: 1000px;
+  margin: 30px auto;
+  color: #e8f4ff;
+  background: rgba(7, 20, 34, 0.94);
+  border-radius: 28px;
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.16);
+}
+
+.section-heading {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #f8fafc;
+}
+
+.section-heading::before {
+  content: '';
+  width: 50px;
+  height: 4px;
+  background: #38bdf8;
+  border-radius: 999px;
+}
+
+section p,
+section li {
+  color: #dbeafc;
+  line-height: 1.8;
+}
+
+.about-copy {
+  max-width: 760px;
+  margin-top: 18px;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.skills span {
+  display: inline-block;
+  background: #0f172a;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+.experience-list,
+.projects-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.experience-item,
+.project {
+  background: #0b1522;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.16);
+}
+
+.experience-item h3,
+.project h3 {
+  color: #38bdf8;
+  margin-bottom: 8px;
+}
+
+.experience-item p,
+.project p {
+  margin: 6px 0 12px;
+}
+
+.experience-item ul {
+  margin-top: 12px;
+  padding-left: 18px;
+}
+
+.experience-item li {
+  margin-bottom: 8px;
+}
+
+.contact-info p {
+  margin: 12px 0;
+  font-size: 1.05rem;
+  color: #dbeafe;
+}
+
+.contact-info a {
+  color: #38bdf8;
+}
+
+@media(max-width: 768px) {
+  .hero { padding: 40px 18px; }
+  .hero-text h1 { font-size: 2.5rem; }
+  .hero-summary { font-size: 1rem; }
+  section { padding: 40px 18px; }
+  .section-heading h2 { font-size: 1.6rem; }
+}
+
+</style>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Sifiso Teboho Donald Mokhele</h1>
+      <p>IT Support & Systems Professional</p>
+      <p>Johannesburg, South Africa | 064 937 3653 | smokhele@byupathway.edu</p>
+      <p><a href="https://www.linkedin.com/in/sifiso-mokhele-ba176b1b/" target="_blank" style="color:#38bdf8; text-decoration:underline;">LinkedIn Profile</a></p>
+      <div class="hero-summary">
+        IT Support and Systems Professional with 18+ years of experience across technical support, ERP systems, and service delivery leadership. Currently pursuing a Bachelor of Applied Science in Information Technology with BYU Pathway Worldwide.
+      </div>
+      <div class="hero-highlights">
+        <div class="highlight-card">
+          <strong>Technical Support</strong>
+          Strong troubleshooting and customer service experience.
+        </div>
+        <div class="highlight-card">
+          <strong>Learning</strong>
+          Building cybersecurity, networking, and Python skills.
+        </div>
+        <div class="highlight-card">
+          <strong>ERP Support</strong>
+          Experience with Autoline and DMS systems.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-heading"><h2>Professional Summary</h2></div>
+  <div class="about-copy">
+    <p>IT Support and Systems Professional with 18+ years of experience across technical support, ERP systems, and service delivery leadership. Currently pursuing a Bachelor of Applied Science in Information Technology (BYU Pathway Worldwide). Completed the Technical Support Engineering certificate and the IT Professional certificate (awaiting certificate PDF upload), with skills in networking, cloud administration, cybersecurity, and Python scripting.</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-heading"><h2>Core Skills</h2></div>
+  <div class="skills">
+    <span>Technical Support & Troubleshooting</span>
+    <span>Networking (OSI, TCP/IP, Subnetting)</span>
+    <span>Windows Administration & PC Hardware</span>
+    <span>Cloud & Server Administration</span>
+    <span>Python Scripting</span>
+    <span>Cybersecurity Fundamentals</span>
+    <span>ERP Systems (Autoline, DMS)</span>
+    <span>Process Improvement</span>
+    <span>Team Leadership</span>
+    <span>Customer Support</span>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-heading"><h2>Professional Experience</h2></div>
+  <div class="experience-list">
+    <div class="experience-item">
+      <h3>K8 Technical Lead – Klipboard, Johannesburg</h3>
+      <p>Feb 2025 – May 2025</p>
+      <ul>
+        <li>Led technical support operations and improved service efficiency.</li>
+        <li>Reduced recurring incidents through root cause analysis.</li>
+        <li>Collaborated with stakeholders to optimize processes.</li>
+      </ul>
+    </div>
+
+    <div class="experience-item">
+      <h3>TSA Managed Helpdesk Support Analyst – Keyloop, Johannesburg</h3>
+      <p>Jan 2024 – Oct 2024</p>
+      <ul>
+        <li>Provided first-line technical support to enterprise clients.</li>
+        <li>Troubleshot complex issues and escalated when required.</li>
+        <li>Maintained high customer satisfaction levels.</li>
+      </ul>
+    </div>
+
+    <div class="experience-item">
+      <h3>Managed Helpdesk Support Manager – Keyloop</h3>
+      <p>Mar 2020 – Dec 2023</p>
+      <ul>
+        <li>Managed support teams across South Africa and the UK.</li>
+        <li>Improved service delivery and handled escalations.</li>
+        <li>Led recruitment, training, and performance management.</li>
+      </ul>
+    </div>
+
+    <div class="experience-item">
+      <h3>Sales & CRM Support Analyst – Keyloop</h3>
+      <p>Apr 2007 – Mar 2020</p>
+      <ul>
+        <li>Supported ERP systems including Autoline.</li>
+        <li>Handled escalations and client support requests.</li>
+        <li>Provided user training and documentation.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-heading"><h2>Education & Certifications</h2></div>
+  <div class="experience-list">
+    <div class="experience-item">
+      <h3>Bachelor of Applied Science in Information Technology (In Progress)</h3>
+      <p>BYU Pathway Worldwide – Expected 2027</p>
+      <ul>
+        <li>Relevant coursework: Networking, Cloud Administration, Python, Cybersecurity Foundations.</li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h3>Technical Support Engineering Certificate</h3>
+      <p>BYU Pathway Worldwide – Completed</p>
+    </div>
+    <div class="experience-item">
+      <h3>IT Professional Certificate</h3>
+      <p>BYU Pathway Worldwide – Completed (certificate PDF pending)</p>
+    </div>
+    <div class="experience-item">
+      <h3>Certificate in Business Analysis</h3>
+      <p>Faculty Training Institute – 2017</p>
+    </div>
+    <div class="experience-item">
+      <h3>Information Technology Diploma</h3>
+      <p>PC Training & Business College – 2004</p>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <div class="section-heading"><h2>Languages</h2></div>
+  <div class="skills">
+    <span>Zulu (Fluent)</span>
+    <span>English (Fluent)</span>
+    <span>Southern Sotho (Fluent)</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-heading"><h2>Contact</h2></div>
+  <div class="contact-info">
+    <p><strong>Email:</strong> smokhele@byupathway.edu</p>
+    <p><strong>Phone:</strong> 064 937 3653</p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sifiso-mokhele-ba176b1b/" target="_blank">View Profile</a></p>
+  </div>
+  <div style="margin-top: 28px; text-align: center;">
+    <a href="{{ url_for('static', filename='Sifiso_Mokhele_CV.pdf') }}" download class="btn">📄 Download My CV</a>
+  </div>
+</section>
+
+{% endblock %}
