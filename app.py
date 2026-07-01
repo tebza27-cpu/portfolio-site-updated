@@ -8,6 +8,8 @@ import subprocess
 import sys
 import shlex
 import secrets
+import smtplib
+from email.message import EmailMessage
 from datetime import datetime
 from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
 
@@ -89,6 +91,53 @@ def _normalize_database_url(raw_url):
         except Exception:
             pass
         return raw_url
+
+def send_testimonial_invite_email(recipient_email, recipient_name, submit_url):
+    smtp_host = os.getenv('SMTP_HOST')
+    smtp_port = int(os.getenv('SMTP_PORT', '587'))
+    smtp_user = os.getenv('SMTP_USERNAME')
+    smtp_password = os.getenv('SMTP_PASSWORD')
+    smtp_from = os.getenv('SMTP_FROM', os.getenv('RECIPIENT_EMAIL', 'no-reply@portfolio-site-updated.git'))
+    smtp_use_tls = os.getenv('SMTP_USE_TLS', 'true').lower() not in ('false', '0', 'no')
+
+    if not smtp_host or not smtp_user or not smtp_password:
+        return False, 'SMTP is not configured. Set SMTP_HOST, SMTP_USERNAME, and SMTP_PASSWORD.'
+
+    msg = EmailMessage()
+    msg['Subject'] = 'Testimonial invitation from Sifiso Mokhele'
+    msg['From'] = smtp_from
+    msg['To'] = recipient_email
+    msg.set_content(
+        f"Hello {recipient_name or 'there'},\n\n"
+        "You have been invited to submit a testimonial for Sifiso Mokhele.\n\n"
+        f"Please use the following secure link to submit your feedback: {submit_url}\n\n"
+        "Thank you for your time and support.\n\n"
+        "Best regards,\n"
+        "Sifiso Mokhele"
+    )
+    msg.add_alternative(
+        f"<html><body><p>Hello {recipient_name or 'there'},</p>"
+        f"<p>You have been invited to submit a testimonial for <strong>Sifiso Mokhele</strong>.</p>"
+        f"<p>Please use the following secure link to submit your feedback:<br><a href=\"{submit_url}\">{submit_url}</a></p>"
+        "<p>Thank you for your time and support.</p>"
+        "<p>Best regards,<br>Sifiso Mokhele</p>"
+        "</body></html>", subtype='html'
+    )
+
+    try:
+        if smtp_use_tls:
+            with smtplib.SMTP(smtp_host, smtp_port, timeout=20) as server:
+                server.starttls()
+                server.login(smtp_user, smtp_password)
+                server.send_message(msg)
+        else:
+            with smtplib.SMTP(smtp_host, smtp_port, timeout=20) as server:
+                server.login(smtp_user, smtp_password)
+                server.send_message(msg)
+        return True, f'Invitation email sent to {recipient_email}.'
+    except Exception as exc:
+        return False, f'Failed to send invitation email: {exc}'
+
 
 CLOUD_SECTION_TITLES = {
     "Business Description and Research",
@@ -866,7 +915,20 @@ def manage_testimonials():
         save_testimonial_invites(invites)
 
         submit_url = url_for('submit_testimonial', token=token, _external=True)
-        return render_template('testimonial_manage.html', invites=invites, success=f'Invitation created for {name}.', submit_url=submit_url, new_invite=invite)
+        email_sent = False
+        email_message = None
+        if email:
+            email_sent, email_message = send_testimonial_invite_email(email, name, submit_url)
+
+        return render_template(
+            'testimonial_manage.html',
+            invites=invites,
+            success=f'Invitation created for {name}.',
+            submit_url=submit_url,
+            new_invite=invite,
+            email_sent=email_sent,
+            email_message=email_message
+        )
 
     return render_template('testimonial_manage.html', invites=invites, error=None, success=None, submit_url=None, new_invite=None)
 

@@ -25,6 +25,11 @@
       <strong>Submission link</strong>
       <div class="invite-url">{{ submit_url }}</div>
     </div>
+    {% if email_message %}
+      <div class="notice {{ 'success' if email_sent else 'error' }}" style="margin-top:10px;">
+        {{ email_message }}
+      </div>
+    {% endif %}
   {% endif %}
 </div>
 
