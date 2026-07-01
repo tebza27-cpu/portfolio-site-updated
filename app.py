@@ -10,6 +10,7 @@ import shlex
 import secrets
 import smtplib
 from email.message import EmailMessage
+from email.utils import formataddr
 from datetime import datetime
 from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
 
@@ -97,15 +98,17 @@ def send_testimonial_invite_email(recipient_email, recipient_name, submit_url):
     smtp_port = int(os.getenv('SMTP_PORT', '587'))
     smtp_user = os.getenv('SMTP_USERNAME')
     smtp_password = os.getenv('SMTP_PASSWORD')
-    smtp_from = os.getenv('SMTP_FROM', os.getenv('RECIPIENT_EMAIL', 'no-reply@portfolio-site-updated.git'))
+    smtp_from = os.getenv('SMTP_FROM', os.getenv('RECIPIENT_EMAIL', smtp_user or 'no-reply@portfolio-site-updated.git'))
     smtp_use_tls = os.getenv('SMTP_USE_TLS', 'true').lower() not in ('false', '0', 'no')
+    smtp_use_ssl = os.getenv('SMTP_USE_SSL', 'false').lower() in ('true', '1', 'yes')
+    smtp_timeout = float(os.getenv('SMTP_TIMEOUT', '20'))
 
     if not smtp_host or not smtp_user or not smtp_password:
         return False, 'SMTP is not configured. Set SMTP_HOST, SMTP_USERNAME, and SMTP_PASSWORD.'
 
     msg = EmailMessage()
     msg['Subject'] = 'Testimonial invitation from Sifiso Mokhele'
-    msg['From'] = smtp_from
+    msg['From'] = formataddr(('Sifiso Mokhele', smtp_from))
     msg['To'] = recipient_email
     msg.set_content(
         f"Hello {recipient_name or 'there'},\n\n"
@@ -125,17 +128,25 @@ def send_testimonial_invite_email(recipient_email, recipient_name, submit_url):
     )
 
     try:
-        if smtp_use_tls:
-            with smtplib.SMTP(smtp_host, smtp_port, timeout=20) as server:
-                server.starttls()
+        if smtp_use_ssl:
+            with smtplib.SMTP_SSL(smtp_host, smtp_port, timeout=smtp_timeout) as server:
                 server.login(smtp_user, smtp_password)
                 server.send_message(msg)
         else:
-            with smtplib.SMTP(smtp_host, smtp_port, timeout=20) as server:
+            with smtplib.SMTP(smtp_host, smtp_port, timeout=smtp_timeout) as server:
+                server.ehlo()
+                if smtp_use_tls:
+                    server.starttls()
+                    server.ehlo()
                 server.login(smtp_user, smtp_password)
                 server.send_message(msg)
         return True, f'Invitation email sent to {recipient_email}.'
+    except smtplib.SMTPConnectError as exc:
+        return False, f'Unable to connect to SMTP server at {smtp_host}:{smtp_port}: {exc}'
+    except OSError as exc:
+        return False, f'Network error connecting to SMTP server at {smtp_host}:{smtp_port}: {exc}'
     except Exception as exc:
+        app.logger.exception('Failed to send testimonial invite email')
         return False, f'Failed to send invitation email: {exc}'
 
 
