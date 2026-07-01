@@ -148,9 +148,11 @@ python app.py
 ## Next Steps (Optional)
 
 ### Email Integration
-- Update `messaging.py` `send_email()` method
-- Options: SendGrid, AWS SES, Gmail SMTP
-- Add `EMAIL_API_KEY` to environment variables
+- Update `messaging.py` `send_email()` method or use `app.py` SMTP settings for testimonial invites
+- Options: SendGrid, AWS SES, Mailgun, Gmail SMTP
+- Gmail SMTP may require an app password and may be blocked from some hosting providers
+- If Render cannot reach `smtp.gmail.com`, use a transactional email service with an API instead
+- Add SMTP settings to environment variables: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_FROM`, `SMTP_USE_TLS`, `SMTP_USE_SSL`, `SMTP_TIMEOUT`
 
 ### Message Logging
 - Add database or file logging of all messages
