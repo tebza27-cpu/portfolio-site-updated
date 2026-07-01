@@ -691,7 +691,7 @@ COURSES = {
     },
     "networking-fundamentals": {
         "title": "Networking Fundamentals",
-        "certificate": "Information Technology",
+        "certificate": "Technical Support Engineer",
         "description": "Networking fundamentals, protocols, and infrastructure design.",
         "url": "https://www.byupathway.edu",
         "local_folder": "IT 255 Networking Fundamentals",
@@ -701,7 +701,7 @@ COURSES = {
         "title": "Scripting for Security Operations",
         "certificate": "System Administration",
         "description": "Learn scripting languages for security automation and operations.",
-        "url": "https://www.byupathway.edu"
+        "url": "https://www.byupathway.edu",
         "local_folder": "IT 380 Scripting for Security Operations",
         "onedrive_link": "https://byupathwayworldwideprod-my.sharepoint.com/:f:/g/personal/smokhele_byupathway_edu/IgBv-Q-P4vocSZpZHPVF0HqDAaYsfWkofGpCMcurBc71-2o?e=a22ERa"
     },
@@ -709,7 +709,7 @@ COURSES = {
         "title": "Azure Technologies",
         "certificate": "System Administration",
         "description": "Microsoft Azure cloud platform services and administration.",
-        "url": "https://www.byupathway.edu"
+        "url": "https://www.byupathway.edu",
         "local_folder": "IT 330 Azure Technologies",
         "onedrive_link": "https://byupathwayworldwideprod-my.sharepoint.com/:f:/g/personal/smokhele_byupathway_edu/IgBElsUALSkoQbdcirrGLyh4AaZjjsY_25awL6X1qtLop14?e=d16YJv"
     },
@@ -717,7 +717,7 @@ COURSES = {
         "title": "AWS Cloud Practitioner",
         "certificate": "System Administration",
         "description": "Amazon Web Services fundamentals and cloud best practices.",
-        "url": "https://www.byupathway.edu"
+        "url": "https://www.byupathway.edu",
         "local_folder": "IT 335 AWS Cloud Practitioner",
         "onedrive_link": "https://byupathwayworldwideprod-my.sharepoint.com/:f:/g/personal/smokhele_byupathway_edu/IgAx9lfj-0MfQYXsHA5VSGPRARupYc-d8zfrGZTnm3BE6HQ?e=5XruGs"
     }
