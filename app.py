@@ -709,6 +709,7 @@ CERTIFICATE_TRACKS = [
     {
         "id": "technical-support-engineer",
         "title": "Technical Support Engineer",
+        "certificate_file": "Technical_Support_Engineer.pdf",
         "summary": "Practical IT support skills for hardware, networking, desktop support, and programming fundamentals.",
         "status": "Completed",
         "detail": "All 5 courses completed",
@@ -723,9 +724,10 @@ CERTIFICATE_TRACKS = [
     {
         "id": "it-professional",
         "title": "IT Professional",
+        "certificate_file": "IT_Professional_eDiploma.pdf",
         "summary": "Advanced IT skills in databases, Linux, cloud, networking, and cybersecurity.",
         "status": "Completed",
-        "detail": "All 5 courses complete — certificate pending upload",
+        "detail": "All 5 courses completed — certificate awarded August 15, 2026",
         "courses": [
             {"id": "database-design", "note": "Completed", "grade": "B+"},
             {"id": "linux-fundamentals", "note": "Completed", "grade": "B+"},
@@ -823,7 +825,8 @@ def cybersecurity_dashboard():
 
 def find_certificate_file(certificate):
     static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
-    candidates = [
+    candidates = [certificate.get('certificate_file')] if certificate.get('certificate_file') else []
+    candidates += [
         f"{certificate['id']}.pdf",
         f"{certificate['title'].replace(' ', '_')}.pdf",
         f"{certificate['title'].replace(' ', '_').replace('-', '_')}.pdf",
