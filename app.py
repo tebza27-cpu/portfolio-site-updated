@@ -804,6 +804,10 @@ def cloud_solution_proposal():
 def cybersecurity():
     return render_template('cybersecurity.html')
 
+@app.route('/security-plus')
+def security_plus():
+    return render_template('security_plus.html')
+
 @app.route('/cybersecurity/hids-siem')
 def hids_siem():
     project_images = [
