@@ -57,23 +57,74 @@
       <article class="study-card">
         <h3>Attack Surface and Defense in Depth</h3>
         <p>Map exposure across OSI layers, perimeter controls, network zones, and application services. Know why single points of failure, undocumented dependencies, and overreliance on perimeter security create risk.</p>
+        <ul>
+          <li>Layers 1-2: physical ports, wireless access, and local broadcast exposure.</li>
+          <li>Layer 3: addressing, spoofing, routing, and zone-to-zone communication.</li>
+          <li>Layers 4-7: TCP/UDP ports, protocols, applications, and services.</li>
+        </ul>
       </article>
       <article class="study-card">
         <h3>Gap Analysis</h3>
         <p>Practise comparing current controls against a framework or compliance requirement, scoring gaps, documenting weak controls, and recommending remediation.</p>
+        <ol>
+          <li>Define the framework or requirement.</li>
+          <li>Record the current control and evidence.</li>
+          <li>Rate the gap, risk, and business impact.</li>
+          <li>Assign remediation and a target date.</li>
+        </ol>
       </article>
       <article class="study-card">
         <h3>Hardening Concepts</h3>
         <p>Review default credentials, unnecessary services, patching, secure management protocols, ACLs, port security, firewalls, logging, antimalware, and physical security.</p>
+        <ul>
+          <li>Replace defaults and enforce strong authentication.</li>
+          <li>Disable unused interfaces, services, and insecure protocols.</li>
+          <li>Patch, monitor, log, and protect the device physically.</li>
+        </ul>
       </article>
       <article class="study-card">
         <h3>Network Access Control</h3>
         <p>Understand authentication, posture checks, dynamic VLAN assignment, quarantine, and the differences between agent-based and agentless NAC.</p>
+        <ul>
+          <li>Agent-based NAC gives detailed device status and can support remediation.</li>
+          <li>Agentless NAC can use scans, DHCP fingerprinting, or port-based controls.</li>
+          <li>Noncompliant devices can be restricted or placed in a quarantine VLAN.</li>
+        </ul>
       </article>
       <article class="study-card">
         <h3>Secure Protocols</h3>
         <p>Compare HTTPS, SSH, SFTP, FTPS, LDAPS, IMAPS, POP3S, SRTP, SIPS, NTS, DNSSEC, and the security limitations of protocols such as FTP, Telnet, and HTTP.</p>
+        <p><strong>Exam habit:</strong> identify the communication scenario first, then choose the protocol that protects the required traffic and authentication.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>High-Value Acronym Review</h2>
+    <p>The attached acronym list is extensive. Start with these terms, then work through the complete supplied list and practise explaining each one without looking.</p>
+    <div class="acronym-table-wrap">
+      <table class="acronym-table">
+        <thead>
+          <tr><th scope="col">Acronym</th><th scope="col">Meaning</th><th scope="col">Why it matters</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AAA</td><td>Authentication, Authorization, and Accounting</td><td>Separates identity, permission, and activity tracking.</td></tr>
+          <tr><td>ACL</td><td>Access Control List</td><td>Restricts traffic or resource access according to rules.</td></tr>
+          <tr><td>BCP / DRP</td><td>Business Continuity Plan / Disaster Recovery Plan</td><td>Connects business resilience with restoration procedures.</td></tr>
+          <tr><td>CIA</td><td>Confidentiality, Integrity, Availability</td><td>Frames the security impact of a control or incident.</td></tr>
+          <tr><td>CVSS</td><td>Common Vulnerability Scoring System</td><td>Helps communicate vulnerability severity and prioritization.</td></tr>
+          <tr><td>DLP</td><td>Data Loss Prevention</td><td>Detects and limits unauthorized data movement.</td></tr>
+          <tr><td>EDR / XDR</td><td>Endpoint Detection and Response / Extended Detection and Response</td><td>Supports detection, investigation, and response across endpoints or broader sources.</td></tr>
+          <tr><td>FDE</td><td>Full Disk Encryption</td><td>Protects stored data when a device or drive is lost.</td></tr>
+          <tr><td>IAM / MFA</td><td>Identity and Access Management / Multifactor Authentication</td><td>Controls identity lifecycle and strengthens authentication.</td></tr>
+          <tr><td>NAC</td><td>Network Access Control</td><td>Checks identity and device health before granting access.</td></tr>
+          <tr><td>RPO / RTO</td><td>Recovery Point Objective / Recovery Time Objective</td><td>Defines acceptable data loss and restoration time.</td></tr>
+          <tr><td>SIEM / SOAR</td><td>Security Information and Event Management / Security Orchestration, Automation, and Response</td><td>Combines security visibility with repeatable response workflows.</td></tr>
+          <tr><td>SFTP / SSH</td><td>Secure File Transfer Protocol / Secure Shell</td><td>Secures file transfer and remote administration.</td></tr>
+          <tr><td>TLS / HTTPS</td><td>Transport Layer Security / Hypertext Transfer Protocol Secure</td><td>Protects web traffic in transit.</td></tr>
+          <tr><td>WAF / VPN</td><td>Web Application Firewall / Virtual Private Network</td><td>Protects web applications and private network connections.</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 

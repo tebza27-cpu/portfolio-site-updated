@@ -96,6 +96,37 @@ table { width:100%; border-collapse: collapse; margin: 1rem 0; }
     margin-bottom: 8px;
 }
 
+.security-plus-page .study-card ul,
+.security-plus-page .study-card ol {
+    padding-left: 20px;
+    color: #486581;
+}
+
+.security-plus-page .study-card li {
+    margin-bottom: 6px;
+}
+
+.security-plus-page .acronym-table-wrap {
+    overflow-x: auto;
+}
+
+.security-plus-page .acronym-table {
+    min-width: 720px;
+    margin-top: 16px;
+}
+
+.security-plus-page .acronym-table th {
+    background: #102a43;
+    color: #ffffff;
+    text-align: left;
+}
+
+.security-plus-page .acronym-table td:first-child {
+    color: #1976a3;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 @media (max-width: 700px) {
     .security-plus-page .page-hero {
         padding: 24px;
