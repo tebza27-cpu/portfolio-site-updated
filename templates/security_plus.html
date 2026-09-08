@@ -154,6 +154,93 @@
     </ul>
   </section>
 
+  <section class="card">
+    <h2>How to Use This Study Pack</h2>
+    <div class="study-workflow">
+      <article class="workflow-step">
+        <span class="step-number">1</span>
+        <h3>Build your map</h3>
+        <p>Read the exam domains, then scan the acronym list. Mark unfamiliar terms and connect each one to a domain.</p>
+      </article>
+      <article class="workflow-step">
+        <span class="step-number">2</span>
+        <h3>Study the control</h3>
+        <p>Use the full guide for depth and the focused notes for attack surface, gap analysis, hardening, NAC, and secure protocols.</p>
+      </article>
+      <article class="workflow-step">
+        <span class="step-number">3</span>
+        <h3>Apply the idea</h3>
+        <p>Draw a network, choose controls, explain trade-offs, and practise deciding which response best reduces the stated risk.</p>
+      </article>
+      <article class="workflow-step">
+        <span class="step-number">4</span>
+        <h3>Close the gap</h3>
+        <p>Log missed questions by objective, revisit the relevant guide section, and retest yourself under timed conditions.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Scenario Drills</h2>
+    <p>Answer these without looking at the notes, then use the linked materials to check your reasoning.</p>
+    <div class="scenario-list">
+      <details>
+        <summary>A device fails a security posture check</summary>
+        <p>Explain how NAC should authenticate it, evaluate its health, assign an appropriate VLAN, and remediate or quarantine it. Compare an agent-based and agentless approach.</p>
+      </details>
+      <details>
+        <summary>A switch is deployed with its default settings</summary>
+        <p>List the hardening sequence: replace credentials, disable unused services and interfaces, use SSH or HTTPS, apply ACLs and port security, and enable monitoring.</p>
+      </details>
+      <details>
+        <summary>An organization adopts a new compliance framework</summary>
+        <p>Describe the gap-analysis evidence you would collect, how you would score missing controls, and how you would assign remediation owners and deadlines.</p>
+      </details>
+      <details>
+        <summary>A team must secure several kinds of traffic</summary>
+        <p>Choose appropriate protocols for web, file transfer, directory access, remote administration, email, voice, and video. Explain why insecure alternatives are unsuitable.</p>
+      </details>
+      <details>
+        <summary>A service is exposed across multiple network layers</summary>
+        <p>Map the attack surface from physical and wireless access through addressing, ports, applications, and services. Recommend defense-in-depth controls and identify single points of failure.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Download Study Materials</h2>
+    <p>These study materials are provided for your Security+ preparation. Start with the full guide or printer-friendly guide, then use the acronym list and focused notes for revision.</p>
+    <div class="resource-grid study-material-grid">
+      <article class="resource-card">
+        <h3>Primary Guides</h3>
+        <ul class="resource-links">
+          <li><a href="{{ url_for('static', filename='images/security_plus/security_plus_full_training_guide.pdf') }}" target="_blank" rel="noopener">Full SY0-701 Training Guide (PDF)</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/security_plus_printer_friendly_guide.pdf') }}" target="_blank" rel="noopener">Printer-Friendly Study Guide (PDF)</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/security_plus_acronyms.pdf') }}" target="_blank" rel="noopener">SY0-701 Acronym List (PDF)</a></li>
+        </ul>
+      </article>
+      <article class="resource-card">
+        <h3>Focused Topic Notes</h3>
+        <ul class="resource-links">
+          <li><a href="{{ url_for('static', filename='images/security_plus/attack_surface.txt') }}" target="_blank" rel="noopener">Attack Surface</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/gap_analysis.txt') }}" target="_blank" rel="noopener">Gap Analysis</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/hardening_concepts.txt') }}" target="_blank" rel="noopener">Hardening Concepts</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/network_access_control.txt') }}" target="_blank" rel="noopener">Network Access Control</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/using_secure_protocols.txt') }}" target="_blank" rel="noopener">Using Secure Protocols</a></li>
+        </ul>
+      </article>
+      <article class="resource-card">
+        <h3>Supporting Documents</h3>
+        <ul class="resource-links">
+          <li><a href="{{ url_for('static', filename='images/security_plus/responsibility_matrix.docx') }}" download>Responsibility Matrix (DOCX)</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/responsibility_matrix_section.docx') }}" download>Responsibility Matrix Section (DOCX)</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/attack_surface_section.docx') }}" download>Attack Surface Section (DOCX)</a></li>
+          <li><a href="{{ url_for('static', filename='images/security_plus/hardening_concepts_section.docx') }}" download>Hardening Concepts Section (DOCX)</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
   <section>
     <h2>Preparation Links</h2>
     <div class="resource-grid">

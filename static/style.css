@@ -78,6 +78,15 @@ table { width:100%; border-collapse: collapse; margin: 1rem 0; }
     color: #486581;
 }
 
+.security-plus-page .resource-links {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.security-plus-page .resource-links li {
+    margin-bottom: 8px;
+}
+
 .security-plus-page .weight {
     display: inline-block;
     margin-bottom: 10px;
@@ -94,6 +103,62 @@ table { width:100%; border-collapse: collapse; margin: 1rem 0; }
 .security-plus-page .checklist li {
     break-inside: avoid;
     margin-bottom: 8px;
+}
+
+.security-plus-page .study-workflow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+}
+
+.security-plus-page .workflow-step {
+    border-left: 4px solid #1976a3;
+    background: #f5f9fc;
+    padding: 16px;
+}
+
+.security-plus-page .workflow-step h3 {
+    margin: 8px 0 6px;
+    color: #102a43;
+}
+
+.security-plus-page .workflow-step p {
+    margin: 0;
+    color: #486581;
+}
+
+.security-plus-page .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1976a3;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.security-plus-page .scenario-list {
+    display: grid;
+    gap: 10px;
+}
+
+.security-plus-page .scenario-list details {
+    border: 1px solid #d9e2ec;
+    padding: 14px 16px;
+    background: #f8fbfd;
+}
+
+.security-plus-page .scenario-list summary {
+    cursor: pointer;
+    color: #102a43;
+    font-weight: 700;
+}
+
+.security-plus-page .scenario-list details p {
+    margin: 12px 0 0;
+    color: #486581;
 }
 
 .security-plus-page .study-card ul,
