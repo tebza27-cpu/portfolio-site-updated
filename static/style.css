@@ -87,6 +87,19 @@ table { width:100%; border-collapse: collapse; margin: 1rem 0; }
     margin-bottom: 8px;
 }
 
+.security-plus-page .cost-list {
+    padding-left: 20px;
+}
+
+.security-plus-page .cost-list li {
+    margin-bottom: 10px;
+}
+
+.security-plus-page .cost-note {
+    font-size: 0.88rem;
+    font-style: italic;
+}
+
 .security-plus-page .weight {
     display: inline-block;
     margin-bottom: 10px;
