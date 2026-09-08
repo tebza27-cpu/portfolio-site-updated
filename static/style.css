@@ -1119,9 +1119,29 @@ tr th {
     color: #334155;
 }
 
+.testimonial-card blockquote p {
+    margin: 0 0 14px;
+}
+
+.testimonial-card blockquote p:last-child {
+    margin-bottom: 0;
+}
+
 .testimonial-meta {
     color: #64748b;
     font-size: 0.95rem;
+}
+
+.testimonial-meta cite {
+    display: block;
+    color: #0f172a;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.testimonial-contact {
+    margin-top: 6px;
+    font-size: 0.9rem;
 }
 
 .testimonial-form,

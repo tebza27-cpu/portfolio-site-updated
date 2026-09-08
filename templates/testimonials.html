@@ -10,14 +10,25 @@
   <div class="testimonial-grid">
     {% for item in testimonials %}
       <div class="testimonial-card">
-        <blockquote>“{{ item.quote }}”</blockquote>
+        <blockquote>
+          {% for paragraph in item.quote.split('\n\n') %}
+            <p>“{{ paragraph }}”</p>
+          {% endfor %}
+        </blockquote>
         <div class="testimonial-meta">
-          <strong>{{ item.name }}</strong>
+          <cite>{{ item.name }}</cite>
           {% if item.role or item.company %}
             <div>{{ item.role }}{% if item.role and item.company %}, {% endif %}{{ item.company }}</div>
           {% endif %}
           {% if item.relationship %}
             <div>{{ item.relationship }}</div>
+          {% endif %}
+          {% if item.email or item.phone %}
+            <div class="testimonial-contact">
+              {% if item.email %}<a href="mailto:{{ item.email }}">{{ item.email }}</a>{% endif %}
+              {% if item.email and item.phone %}<span aria-hidden="true"> | </span>{% endif %}
+              {% if item.phone %}<a href="tel:{{ item.phone|replace(' ', '') }}">{{ item.phone }}</a>{% endif %}
+            </div>
           {% endif %}
         </div>
       </div>
