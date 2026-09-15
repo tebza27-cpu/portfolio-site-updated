@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Starting and Growing My Business{% endblock %}
+
+{% block content %}
+<main class="business-journey-page">
+    <section class="business-hero">
+        <div>
+            <p class="business-eyebrow">Self-Reliance Course | Learning Journal</p>
+            <h1>Starting and Growing My Business</h1>
+            <p class="business-hero-copy">A personal record of what I am learning about entrepreneurship, disciplined action, and the kind of person I need to become to build a sustainable business.</p>
+            <div class="business-actions">
+                <a class="btn business-btn" href="{{ url_for('static', filename='14678_sgmb_book_eng.pdf') }}" target="_blank" rel="noopener noreferrer">Open course book</a>
+                <a class="btn business-btn-secondary" href="{{ url_for('static', filename='Chapter2_Assignment_Starting and Growing My Business - Spring Class.docx') }}">Read Chapter 2 assignment</a>
+                <a class="btn business-btn-secondary" href="{{ url_for('byu') }}">View study progress</a>
+            </div>
+        </div>
+        <div class="business-hero-mark" aria-hidden="true"><span>02</span><small>Chapter focus</small></div>
+    </section>
+
+    <section class="business-intro">
+        <div><p class="business-kicker">Why I am documenting this</p><h2>Building a business starts with building the builder.</h2></div>
+        <p>This course is helping me connect an idea to a real customer problem, a simple plan, and consistent execution. I am learning that self-reliance is not doing everything alone. It is taking responsibility for learning what I do not know, asking better questions, and following through on useful work.</p>
+    </section>
+
+    <section class="business-section">
+        <div class="business-section-heading">
+            <p class="business-kicker">Chapter 2 assignment</p>
+            <h2>From reflection to a practical starting point</h2>
+            <p>The assignment from last week gave me a chance to pause and examine the person, purpose, and opportunity behind a business idea. My main takeaway is that a business should begin with service: understanding who needs help and creating something useful enough that they are willing to choose it.</p>
+        </div>
+        <div class="business-reflection-grid">
+            <article class="business-note business-note-dark"><span class="business-note-number">01</span><h3>What I am learning</h3><p>Good ideas become businesses through evidence. I need to listen to potential customers, test assumptions early, and improve the offer based on what I learn instead of protecting my first version.</p></article>
+            <article class="business-note"><span class="business-note-number">02</span><h3>What I am learning about myself</h3><p>I bring persistence, technical experience, and a willingness to keep learning. I also need to become more comfortable with uncertainty, make decisions before I have perfect information, and treat feedback as part of the work.</p></article>
+            <article class="business-note business-note-accent"><span class="business-note-number">03</span><h3>What I will practise next</h3><p>I will turn a broad idea into one clear customer problem, speak with people who experience it, and record what I hear. Then I will define a small, testable next step instead of waiting for a complete business plan.</p></article>
+        </div>
+    </section>
+
+    <section class="business-section business-learning-section">
+        <div class="business-section-heading"><p class="business-kicker">My learning framework</p><h2>The habits I want this course to develop</h2></div>
+        <div class="business-habits">
+            <div><strong>Notice</strong><span>Pay attention to real needs, frustrations, and opportunities around me.</span></div>
+            <div><strong>Validate</strong><span>Ask questions and test assumptions before investing too much time or money.</span></div>
+            <div><strong>Serve</strong><span>Create value with honesty, reliability, and respect for the people I want to help.</span></div>
+            <div><strong>Persist</strong><span>Use setbacks as information and keep taking the next responsible step.</span></div>
+        </div>
+    </section>
+
+    <section class="business-next-step"><div><p class="business-kicker">My next checkpoint</p><h2>Move from a business idea to customer evidence.</h2></div><p>My immediate goal is to have conversations, capture patterns, and use those patterns to shape a focused offer. This is how I will measure progress: not only by having an idea, but by learning whether it genuinely helps someone.</p></section>
+</main>
+{% endblock %}

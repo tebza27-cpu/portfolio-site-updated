@@ -774,6 +774,10 @@ def support():
 def byu():
     return render_template('byu.html')
 
+@app.route('/business-journey')
+def business_journey():
+    return render_template('business_journey.html')
+
 @app.route('/cloud')
 def cloud():
     return render_template('cloud.html', projects=CLOUD_PROJECT_DETAILS)
