@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Chapter 2 Progress | Starting and Growing My Business{% endblock %}
+
+{% block content %}
+<main class="business-progress-page">
+    <a class="progress-back-link" href="{{ url_for('business_journey') }}">&larr; Back to Business Journey</a>
+    <section class="progress-hero">
+        <p class="business-eyebrow">Starting and Growing My Business | Chapter 2</p>
+        <h1>Solving Unmet Customer Needs</h1>
+        <p>This progress view records what I completed in the Chapter 2 assignment and how the learning is shaping my potential IT support, cloud, and cybersecurity business.</p>
+        <div class="progress-summary">
+            <div><strong>5/5</strong><span>Assignment sections reflected on</span></div>
+            <div><strong>2-3</strong><span>Potential customers consulted</span></div>
+            <div><strong>Next</strong><span>Business notebook commitments</span></div>
+        </div>
+    </section>
+
+    <section class="progress-section">
+        <div class="progress-section-heading">
+            <p class="business-kicker">Chapter learning progress</p>
+            <h2>What I completed and what it taught me</h2>
+        </div>
+        <div class="progress-track">
+            <article class="progress-item progress-complete">
+                <div class="progress-number">01</div>
+                <div><span class="progress-status">Complete</span><h3>Why people buy</h3><p>I learned that people pay for solutions to problems, including convenience, savings, security, quality, and peace of mind. For my business, that means showing how reliable support reduces downtime and protects systems.</p></div>
+            </article>
+            <article class="progress-item progress-complete">
+                <div class="progress-number">02</div>
+                <div><span class="progress-status">Complete</span><h3>Identify and meet customer needs</h3><p>My customer conversations confirmed that computer problems, slow devices, and cybersecurity concerns are common. People said they would pay for affordable, fast, and reliable technical support.</p></div>
+            </article>
+            <article class="progress-item progress-complete">
+                <div class="progress-number">03</div>
+                <div><span class="progress-status">Complete</span><h3>Observe change and opportunity</h3><p>I identified the move to cloud platforms and the growing concern about cybersecurity as a change creating demand for cloud administration, backup management, security consulting, and support for small businesses.</p></div>
+            </article>
+            <article class="progress-item progress-complete">
+                <div class="progress-number">04</div>
+                <div><span class="progress-status">Complete</span><h3>Connect passion with experience</h3><p>My strongest contribution is helping people and small businesses secure data, solve technical issues, and adopt useful digital solutions. My income-producing skills include technical troubleshooting, network administration, and cloud and cybersecurity support.</p></div>
+            </article>
+            <article class="progress-item progress-complete">
+                <div class="progress-number">05</div>
+                <div><span class="progress-status">Complete</span><h3>Define a competitive advantage</h3><p>My advantage is the combination of practical technical support experience, current IT degree studies, ongoing certification work, affordable personal service, and knowledge of both traditional infrastructure and modern cloud technologies.</p></div>
+            </article>
+        </div>
+    </section>
+
+    <section class="progress-opportunity">
+        <div><p class="business-kicker">Business opportunity taking shape</p><h2>Affordable technology support for small businesses.</h2></div>
+        <p>Many small businesses cannot afford full-time IT staff. I am exploring a service that helps them solve technical problems, improve cybersecurity awareness, manage backups, and move to cloud tools without losing personal support.</p>
+    </section>
+
+    <section class="progress-section progress-commitments">
+        <div class="progress-section-heading"><p class="business-kicker">In progress before Chapter 3</p><h2>My next evidence-gathering commitments</h2></div>
+        <div class="commitment-grid">
+            <div><span class="commitment-status">In progress</span><strong>Observe</strong><p>Record unmet customer needs in my business notebook each day.</p></div>
+            <div><span class="commitment-status">Next</span><strong>Prioritize</strong><p>Create a list of the five most important unmet needs I observe.</p></div>
+            <div><span class="commitment-status">Next</span><strong>Compare</strong><p>Study five local businesses and record each competitive advantage.</p></div>
+            <div><span class="commitment-status">Ongoing</span><strong>Act</strong><p>Support my action partner and keep my personal foundation commitments.</p></div>
+        </div>
+    </section>
+
+    <div class="progress-footer-actions"><a class="btn business-btn" href="{{ url_for('static', filename='Chapter2_Assignment_Starting and Growing My Business - Spring Class.docx') }}">Read the assignment</a><a class="btn btn-secondary" href="{{ url_for('business_journey') }}">Return to learning journal</a></div>
+</main>
+{% endblock %}

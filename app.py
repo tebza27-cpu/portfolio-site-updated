@@ -778,6 +778,10 @@ def byu():
 def business_journey():
     return render_template('business_journey.html')
 
+@app.route('/business-journey/progress')
+def business_progress():
+    return render_template('business_progress.html')
+
 @app.route('/cloud')
 def cloud():
     return render_template('cloud.html', projects=CLOUD_PROJECT_DETAILS)
