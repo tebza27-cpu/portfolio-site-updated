@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Weekly Progress | Starting and Growing My Business{% endblock %}
+
+{% block content %}
+<main class="business-progress-page">
+    <a class="progress-back-link" href="{{ url_for('business_journey') }}">&larr; Back to Business Journey</a>
+    <section class="progress-hero weekly-archive-hero">
+        <p class="business-eyebrow">Starting and Growing My Business | Weekly archive</p>
+        <h1>My progress, one week at a time.</h1>
+        <p>Each button opens a separate record of the assignment, what I learned, and what I discovered about myself while building a business.</p>
+    </section>
+
+    <section class="progress-section">
+        <div class="progress-section-heading">
+            <p class="business-kicker">Course record</p>
+            <h2>Weekly learning entries</h2>
+        </div>
+        <div class="week-button-grid">
+            {% for week in weeks %}
+            <a class="week-button" href="{{ url_for(week.route) }}">
+                <span class="week-button-label">{{ week.label }}</span>
+                <strong>{{ week.title }}</strong>
+                <span class="week-button-summary">{{ week.summary }}</span>
+                <span class="week-button-status">{{ week.status }} <span aria-hidden="true">&rarr;</span></span>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="weekly-next-entry">
+            <span class="progress-status">Next entry</span>
+            <h3>Chapter 3 will be added here</h3>
+            <p>When the next assignment is complete, it can be added as its own button without changing the Chapter 2 record.</p>
+        </div>
+    </section>
+</main>
+{% endblock %}

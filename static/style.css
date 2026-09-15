@@ -42,6 +42,21 @@ body.home-theme .btn:hover { text-decoration:none; }
 .business-habits strong { color:#c47f55; font-family:Georgia,serif; font-size:1.45rem; margin-bottom:8px; }
 .business-habits span { color:#526168; font-size:.95rem; }
 .business-next-step { background:#e4eee9; border:0; border-radius:8px; padding:32px; margin:0 0 36px; }
+.business-week-archive { align-items:center; background:#fff; border:1px solid #d7dedb; border-radius:8px; display:flex; gap:28px; justify-content:space-between; margin:0 0 12px; padding:26px 30px; }
+.business-week-archive h2 { color:#183b3f; font-family:Georgia,serif; font-size:2rem; font-weight:400; margin:0 0 8px; }
+.business-week-archive p:last-child { color:#526168; margin:0; max-width:690px; }
+.weekly-archive-hero { margin-bottom:42px; }
+.week-button-grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+.week-button { background:#fff; border:1px solid #d7dedb; border-radius:8px; color:#24313a; display:flex; flex-direction:column; min-height:220px; padding:24px; text-decoration:none; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+.week-button:hover { border-color:#c47f55; box-shadow:0 14px 30px rgba(24,59,63,.1); text-decoration:none; transform:translateY(-2px); }
+.week-button-label { color:#c47f55; font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.week-button strong { color:#183b3f; font-family:Georgia,serif; font-size:1.55rem; font-weight:400; line-height:1.1; margin:18px 0 10px; }
+.week-button-summary { color:#526168; font-size:.96rem; }
+.week-button-status { color:#183b3f; font-size:.85rem; font-weight:700; margin-top:auto; padding-top:22px; }
+.week-button-status span { color:#c47f55; font-size:1.1rem; margin-left:6px; }
+.weekly-next-entry { border-left:3px solid #c47f55; margin-top:26px; padding:6px 0 6px 20px; }
+.weekly-next-entry h3 { color:#183b3f; margin:7px 0 5px; }
+.weekly-next-entry p { color:#526168; margin:0; }
 @media (max-width:760px) { .business-hero { grid-template-columns:1fr; padding:34px 26px; } .business-hero-mark { border-left:0; border-top:1px solid #6d918b; padding:20px 0 0; } .business-intro,.business-next-step { grid-template-columns:1fr; gap:20px; } .business-reflection-grid,.business-habits { grid-template-columns:1fr; } }
 
 .business-progress-page { max-width: 980px; margin: 0 auto; color: #24313a; }
@@ -75,6 +90,7 @@ body.home-theme .btn:hover { text-decoration:none; }
 .progress-footer-actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 0 36px; }
 .progress-footer-actions .btn { margin: 0; }
 @media (max-width: 760px) { .progress-hero { padding: 30px 24px; } .progress-summary, .progress-opportunity, .commitment-grid { grid-template-columns: 1fr; } .progress-track { padding-left: 20px; } .progress-item { grid-template-columns: 36px 1fr; gap: 14px; } .progress-number { margin-left: -43px; } }
+@media (max-width:760px) { .business-week-archive { align-items:flex-start; flex-direction:column; } }
 nav { background:#1f2937; padding:15px; }
 nav a { color:white; margin:10px; text-decoration:none; }
 .container { padding:20px; }

@@ -778,6 +778,21 @@ def byu():
 def business_journey():
     return render_template('business_journey.html')
 
+BUSINESS_WEEKS = [
+    {
+        'slug': 'chapter-2',
+        'label': 'Chapter 2',
+        'title': 'Solving Unmet Customer Needs',
+        'summary': 'Customer needs, interviews, opportunity, personal strengths, and competitive advantage.',
+        'status': 'Complete',
+        'route': 'business_progress'
+    }
+]
+
+@app.route('/business-journey/weeks')
+def business_weeks():
+    return render_template('business_weeks.html', weeks=BUSINESS_WEEKS)
+
 @app.route('/business-journey/progress')
 def business_progress():
     return render_template('business_progress.html')
