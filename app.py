@@ -786,6 +786,14 @@ BUSINESS_WEEKS = [
         'summary': 'Customer needs, interviews, opportunity, personal strengths, and competitive advantage.',
         'status': 'Complete',
         'route': 'business_progress'
+    },
+    {
+        'slug': 'chapter-4',
+        'label': 'Chapter 4',
+        'title': 'Finding Customers',
+        'summary': 'Customer focus, target customers, business messaging, sales channels, promotion, and measurement.',
+        'status': 'Current lesson',
+        'route': 'business_customers'
     }
 ]
 
@@ -796,6 +804,10 @@ def business_weeks():
 @app.route('/business-journey/progress')
 def business_progress():
     return render_template('business_progress.html')
+
+@app.route('/business-journey/customers')
+def business_customers():
+    return render_template('business_customers.html')
 
 @app.route('/cloud')
 def cloud():
