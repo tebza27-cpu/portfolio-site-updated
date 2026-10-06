@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sifiso Mokhele | Technical Support & IT Professional</title>
+    <title>{% block title %}Sifiso Mokhele | Technical Support &amp; IT Professional{% endblock %}</title>
     <meta name="description" content="Sifiso Mokhele is an IT Support and Systems Professional with 18+ years of experience and a growing focus in technical support, networking, cloud, Linux, databases, and cybersecurity.">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -14,6 +14,7 @@
     <a href="/support" class="{% if request.path == '/support' %}active{% endif %}">Support</a>
     <a href="/byu" class="{% if request.path == '/byu' %}active{% endif %}">BYU Studies</a>
     <a href="/business-journey" class="{% if request.path == '/business-journey' %}active{% endif %}">Business Journey</a>
+    <a href="/general-conference/october-2026" class="{% if request.path.startswith('/general-conference') %}active{% endif %}">Conference Notes</a>
     <a href="/cloud" class="{% if request.path == '/cloud' %}active{% endif %}">Cloud Projects</a>
     <a href="/cybersecurity" class="{% if request.path == '/cybersecurity' %}active{% endif %}">Cybersecurity Projects</a>
     <a href="/security-plus" class="{% if request.path == '/security-plus' %}active{% endif %}">Security+ Study</a>

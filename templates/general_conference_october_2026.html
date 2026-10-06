@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}October 2026 General Conference | Conference Notes{% endblock %}
+{% block body_class %}conference-theme{% endblock %}
+
+{% block content %}
+<main class="conference-page">
+    <header class="conference-hero">
+        <div>
+            <p class="conference-eyebrow">Study journal | October 3-4, 2026</p>
+            <h1>October 2026 General Conference</h1>
+            <p class="conference-hero-copy">A personal study page for the messages of the 196th Semiannual General Conference: what they teach, what I want to remember, and how I will act on what I learned.</p>
+            <a class="conference-source-link" href="https://www.churchofjesuschrist.org/study/general-conference/2026/10?lang=eng" target="_blank" rel="noopener noreferrer">Open the official conference program</a>
+        </div>
+        <div class="conference-hero-meta"><strong>4 sessions</strong><span>October 3-4, 2026</span><strong>38 program entries</strong><span>Including sustaining and closing remarks</span></div>
+    </header>
+
+    <section class="conference-section" aria-labelledby="conference-summary-title">
+        <div class="conference-section-heading">
+            <p class="conference-kicker">The conference in brief</p>
+            <h2 id="conference-summary-title">Faith in Christ, made visible in daily life.</h2>
+            <p>Across the sessions, speakers connected trust in Jesus Christ with covenant worship, spiritual resilience, compassion for others, and choices that reflect discipleship. These notes synthesize the official program summaries; use the linked talks for the full messages.</p>
+        </div>
+        <div class="conference-theme-grid">
+            <article class="conference-theme"><h3>Turn to Jesus Christ</h3><p>Christ is presented as Deliverer, Comforter, Light, and the One who lifts us. Remembering God's goodness and trusting His promises can sustain hope through affliction and uncertainty.</p></article>
+            <article class="conference-theme"><h3>Let covenants shape the week</h3><p>Temple worship, ordinances, the sacrament, prayer, scripture study, fasting, and tithing are not isolated duties; they can form a steadier, more resilient pattern of discipleship.</p></article>
+            <article class="conference-theme"><h3>See people as God sees them</h3><p>Messages on divine appointments, peacemaking, teaching, and Christlike love call me to replace quick judgment with attention, kindness, and useful service.</p></article>
+            <article class="conference-theme"><h3>Choose courage, integrity, and wise use of time</h3><p>Faith can move us to act on prophetic counsel, share testimony, pursue worthy aspirations, live with integrity, and spend our time on what brings lasting good.</p></article>
+        </div>
+    </section>
+
+    <section class="conference-section" aria-labelledby="personal-reflection-title">
+        <div class="conference-section-heading">
+            <p class="conference-kicker">My personal notes</p>
+            <h2 id="personal-reflection-title">What is the Spirit teaching me?</h2>
+        </div>
+        <div class="conference-reflection">
+            <div class="conference-reflection-prompt"><h3>Pause and make it personal.</h3><p>Write in your own words. These notes stay in this browser and are not sent to the site.</p></div>
+            <div class="conference-notes-fields">
+                <label for="conference-impression">A message I want to remember<textarea id="conference-impression" data-reflection="impression" placeholder="What stood out, and why?"></textarea></label>
+                <label for="conference-change">A change I feel prompted to make<textarea id="conference-change" data-reflection="change" placeholder="What will I start, stop, or continue?"></textarea></label>
+                <label for="conference-person">Someone I can serve or encourage<textarea id="conference-person" data-reflection="person" placeholder="Who came to mind, and what could I do?"></textarea></label>
+            </div>
+        </div>
+    </section>
+
+    <section class="conference-section" aria-labelledby="action-plan-title">
+        <div class="conference-action-header">
+            <div class="conference-section-heading">
+                <p class="conference-kicker">My action plan</p>
+                <h2 id="action-plan-title">Turn a takeaway into a next step.</h2>
+                <p>These are starting prompts. Edit the notes to fit what you personally heard and felt.</p>
+            </div>
+            <div class="conference-progress"><span id="conference-progress-label">0 of 5 complete</span><progress id="conference-progress" value="0" max="5">0%</progress></div>
+        </div>
+        <div class="conference-action-list" id="conference-action-list">
+            <article class="conference-action" data-action-id="revisit">
+                <input type="checkbox" aria-label="Mark revisit one message complete">
+                <div><h3>Revisit one message</h3><p>Choose a talk that speaks to a current need. Read it slowly and write down one teaching to carry into the week.</p><label class="conference-action-note-label">My next step<textarea data-action-note placeholder="Which talk, and when will I study it?"></textarea></label></div>
+            </article>
+            <article class="conference-action" data-action-id="daily-worship">
+                <input type="checkbox" aria-label="Mark strengthen a spiritual practice complete">
+                <div><h3>Strengthen one spiritual practice</h3><p>Choose one practice named in the messages, such as prayer, scripture study, the sacrament, fasting, or temple worship, and make a realistic plan.</p><label class="conference-action-note-label">My next step<textarea data-action-note placeholder="What practice will I focus on, and how?"></textarea></label></div>
+            </article>
+            <article class="conference-action" data-action-id="compassion">
+                <input type="checkbox" aria-label="Mark act with compassion complete">
+                <div><h3>Act on a compassionate impression</h3><p>Notice one person I might otherwise overlook or judge. Listen first, then offer specific help or encouragement.</p><label class="conference-action-note-label">My next step<textarea data-action-note placeholder="What will I do, and by when?"></textarea></label></div>
+            </article>
+            <article class="conference-action" data-action-id="peacemaker">
+                <input type="checkbox" aria-label="Mark use peacemaking language complete">
+                <div><h3>Use words that make peace</h3><p>In one conversation this week, pause before responding and choose language that is both kind and honest.</p><label class="conference-action-note-label">My next step<textarea data-action-note placeholder="Which conversation or habit will I work on?"></textarea></label></div>
+            </article>
+            <article class="conference-action" data-action-id="share">
+                <input type="checkbox" aria-label="Mark share a message or testimony complete">
+                <div><h3>Share a message of hope</h3><p>When it feels appropriate, share a simple testimony of Jesus Christ or a conference teaching that could encourage someone.</p><label class="conference-action-note-label">My next step<textarea data-action-note placeholder="What message would I like to share, and with whom?"></textarea></label></div>
+            </article>
+        </div>
+        <form class="conference-custom-form" id="conference-custom-form">
+            <label for="conference-custom-text">Add an action item<input id="conference-custom-text" name="action" type="text" maxlength="180" placeholder="A specific step I want to take" required></label>
+            <label for="conference-custom-date">Target date<input id="conference-custom-date" name="due" type="date"></label>
+            <button class="btn" type="submit">Add action</button>
+        </form>
+        <div class="conference-custom-list" id="conference-custom-list" aria-live="polite"></div>
+        <p class="conference-storage-note">Your notes and checklist are saved in this browser only. Use Print / Save PDF if you want a copy outside this device.</p>
+    </section>
+
+    <section class="conference-section" aria-labelledby="talks-title">
+        <div class="conference-section-heading">
+            <p class="conference-kicker">Explore the messages</p>
+            <h2 id="talks-title">Talks by session</h2>
+            <p>Each summary below is a short paraphrase of the official program description. Open a talk for its complete message.</p>
+        </div>
+        <div class="conference-talk-sessions">
+            {% for session in sessions %}
+            <details class="conference-session" {% if loop.first %}open{% endif %}>
+                <summary>{{ session.session }} <span>({{ session.talks|length }} program entries)</span></summary>
+                <div class="conference-talk-list">
+                    {% for talk in session.talks %}
+                    <article class="conference-talk">
+                        <p class="conference-talk-speaker">{{ talk.speaker }}</p>
+                        <h3>{{ talk.title }}</h3>
+                        <p>{{ talk.summary }}</p>
+                        <a href="{{ talk.url }}" target="_blank" rel="noopener noreferrer">Read the talk</a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </details>
+            {% endfor %}
+        </div>
+    </section>
+
+    <button class="btn conference-print" type="button" id="conference-print">Print / Save PDF</button>
+</main>
+<script src="{{ url_for('static', filename='conference_notes.js') }}" defer></script>
+{% endblock %}

@@ -821,6 +821,13 @@ def business_customers():
 def business_growth():
     return render_template('business_growth.html')
 
+@app.route('/general-conference/october-2026')
+def october_2026_conference():
+    conference_path = Path(__file__).resolve().parent / 'data' / 'general_conference_october_2026.json'
+    with conference_path.open(encoding='utf-8') as conference_file:
+        conference_sessions = json.load(conference_file)
+    return render_template('general_conference_october_2026.html', sessions=conference_sessions)
+
 @app.route('/cloud')
 def cloud():
     return render_template('cloud.html', projects=CLOUD_PROJECT_DETAILS)

@@ -111,6 +111,63 @@ a:hover { text-decoration: underline; }
 .contact-service-list ul { color: #526168; margin: 0; padding-left: 20px; }
 .contact-service-list li { margin-bottom: 10px; }
 @media (max-width: 760px) { .contact-business-section { grid-template-columns: 1fr; padding: 24px; } .contact-service-list { border-left: 0; border-top: 1px solid #b9c9c4; padding: 22px 0 0; } }
+.conference-page { color: #24313a; margin: 0 auto; max-width: 1120px; }
+.conference-hero { align-items: end; background: #183b3f; border-radius: 8px; color: #f5f0e8; display: grid; gap: 28px; grid-template-columns: minmax(0,1fr) 210px; margin-bottom: 42px; padding: 48px; }
+.conference-eyebrow { color: #e1aa79; font-size: .78rem; font-weight: 700; letter-spacing: .12em; margin: 0 0 12px; text-transform: uppercase; }
+.conference-hero h1 { color: #f5f0e8; font-family: Georgia,serif; font-size: clamp(2.5rem,6vw,4.6rem); font-weight: 400; line-height: 1; margin: 0 0 18px; }
+.conference-hero-copy { color: #d7e0dc; font-size: 1.06rem; margin: 0; max-width: 720px; }
+.conference-hero-meta { border-left: 1px solid #6d918b; color: #d7e0dc; padding-left: 22px; }
+.conference-hero-meta strong { color: #e1aa79; display: block; font-family: Georgia,serif; font-size: 1.8rem; font-weight: 400; }
+.conference-hero-meta span { display: block; font-size: .9rem; margin-top: 6px; }
+.conference-source-link { color: #f5f0e8; display: inline-block; font-weight: 700; margin-top: 22px; text-decoration: underline; text-underline-offset: 3px; }
+.conference-section { border-bottom: 1px solid #d7dedb; padding: 0 0 42px; margin-bottom: 42px; }
+.conference-section-heading { margin-bottom: 24px; }
+.conference-section-heading h2 { color: #183b3f; font-family: Georgia,serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; margin: 0 0 10px; }
+.conference-section-heading p:last-child { color: #526168; margin: 0; max-width: 760px; }
+.conference-kicker { color: #c47f55; font-size: .76rem; font-weight: 700; letter-spacing: .12em; margin: 0 0 10px; text-transform: uppercase; }
+.conference-theme-grid { display: grid; gap: 14px; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.conference-theme { background: #fff; border-left: 3px solid #c47f55; padding: 22px 24px; }
+.conference-theme h3 { color: #183b3f; font-family: Georgia,serif; font-size: 1.35rem; font-weight: 400; margin: 0 0 8px; }
+.conference-theme p { color: #526168; margin: 0; }
+.conference-reflection { background: #e4eee9; border-radius: 8px; display: grid; gap: 22px; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); padding: 30px; }
+.conference-reflection-prompt h3 { color: #183b3f; font-family: Georgia,serif; font-size: 1.45rem; font-weight: 400; margin: 0 0 8px; }
+.conference-reflection-prompt p { color: #526168; margin: 0; }
+.conference-notes-fields { display: grid; gap: 14px; }
+.conference-notes-fields label,.conference-action-note-label { color: #183b3f; display: grid; font-size: .9rem; font-weight: 700; gap: 6px; }
+.conference-page textarea,.conference-page input[type="text"],.conference-page input[type="date"] { background: #fff; border: 1px solid #b9c9c4; border-radius: 4px; box-sizing: border-box; color: #24313a; font: inherit; padding: 10px 12px; width: 100%; }
+.conference-page textarea { min-height: 90px; resize: vertical; }
+.conference-talk-sessions { display: grid; gap: 12px; }
+.conference-session { background: #fff; border: 1px solid #d7dedb; border-radius: 6px; }
+.conference-session summary { color: #183b3f; cursor: pointer; font-family: Georgia,serif; font-size: 1.35rem; padding: 18px 20px; }
+.conference-talk-list { border-top: 1px solid #d7dedb; display: grid; gap: 0 28px; grid-template-columns: repeat(2,minmax(0,1fr)); padding: 4px 20px 12px; }
+.conference-talk { border-bottom: 1px solid #e6ece9; padding: 16px 0; }
+.conference-talk:last-child { border-bottom: 0; }
+.conference-talk h3 { color: #183b3f; font-size: 1rem; line-height: 1.35; margin: 0 0 4px; }
+.conference-talk-speaker { color: #c47f55; font-size: .8rem; font-weight: 700; margin: 0 0 6px; }
+.conference-talk p:not(.conference-talk-speaker) { color: #526168; font-size: .92rem; margin: 0 0 8px; }
+.conference-talk a { color: #245d59; font-size: .88rem; font-weight: 700; }
+.conference-action-header { align-items: end; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; margin-bottom: 20px; }
+.conference-progress { color: #526168; font-size: .92rem; min-width: 145px; }
+.conference-progress progress { accent-color: #c47f55; display: block; height: 9px; margin-top: 6px; width: 100%; }
+.conference-action-list { display: grid; gap: 12px; }
+.conference-action { background: #fff; border: 1px solid #d7dedb; border-radius: 6px; display: grid; gap: 16px; grid-template-columns: 24px minmax(0,1fr); padding: 20px; }
+.conference-action input[type="checkbox"] { accent-color: #245d59; height: 20px; margin: 3px 0 0; width: 20px; }
+.conference-action h3 { color: #183b3f; font-size: 1.05rem; margin: 0 0 5px; }
+.conference-action p { color: #526168; font-size: .92rem; margin: 0 0 12px; }
+.conference-action.is-complete h3 { text-decoration: line-through; }
+.conference-custom-form { align-items: end; display: grid; gap: 12px; grid-template-columns: minmax(0,1fr) 170px auto; margin-top: 22px; }
+.conference-custom-form label { color: #183b3f; display: grid; font-size: .88rem; font-weight: 700; gap: 6px; }
+.conference-custom-form .btn { background: #245d59; margin: 0; white-space: nowrap; }
+.conference-custom-list { display: grid; gap: 10px; margin-top: 14px; }
+.conference-custom-task { align-items: center; background: #f5f0e8; display: grid; gap: 12px; grid-template-columns: 22px minmax(0,1fr) auto; padding: 12px 14px; }
+.conference-custom-task label { align-items: center; color: #24313a; display: flex; gap: 10px; }
+.conference-custom-task input[type="checkbox"] { accent-color: #245d59; height: 18px; width: 18px; }
+.conference-custom-task.is-complete span { text-decoration: line-through; }
+.conference-remove-task { background: transparent; border: 0; color: #526168; cursor: pointer; font: inherit; font-size: .85rem; text-decoration: underline; }
+.conference-storage-note { color: #526168; font-size: .85rem; margin: 18px 0 0; }
+.conference-print { background: #245d59; margin: 0; }
+@media (max-width: 760px) { .conference-hero { grid-template-columns: 1fr; padding: 32px 24px; } .conference-hero-meta { border-left: 0; border-top: 1px solid #6d918b; padding: 16px 0 0; } .conference-theme-grid,.conference-reflection,.conference-talk-list { grid-template-columns: 1fr; } .conference-custom-form { grid-template-columns: 1fr; } .conference-custom-form .btn { justify-self: start; } }
+@media print { body { background: #fff; } nav,.conference-source-link,.conference-custom-form,.conference-remove-task,.conference-print { display: none !important; } .container { padding: 0; } .conference-hero { background: #fff; border: 2px solid #183b3f; color: #183b3f; padding: 24px; } .conference-hero h1,.conference-hero-meta strong { color: #183b3f; } .conference-hero-copy,.conference-hero-meta { color: #24313a; } .conference-session:not([open]) > *:not(summary) { display: block; } .conference-session { break-inside: avoid; } .conference-action,.conference-theme { break-inside: avoid; } }
 .btn-secondary { background:#1f2937; }
 tr th, tr td { border: 1px solid #e6e6e6; padding: 0.6rem 0.8rem; }
 tr th { background-color: #f5f5f5; }
