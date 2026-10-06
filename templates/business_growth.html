@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Chapter 9 Progress | Starting and Growing My Business{% endblock %}
+
+{% block content %}
+<main class="business-progress-page">
+    <a class="progress-back-link" href="{{ url_for('business_weeks') }}">&larr; Back to weekly progress</a>
+    <section class="progress-hero">
+        <p class="business-eyebrow">Starting and Growing My Business | Chapter 9</p>
+        <h1>Growing My Business</h1>
+        <p>This chapter turns a successful core offer into a thoughtful growth plan: choose where to grow, prepare for the resources and risks, and protect the business's financial foundation.</p>
+        <div class="progress-summary">
+            <div><strong>3</strong><span>Growth paths</span></div>
+            <div><strong>2</strong><span>Parts of the plan: growth and costs</span></div>
+            <div><strong>Next</strong><span>Test demand before expanding</span></div>
+        </div>
+    </section>
+
+    <section class="progress-section">
+        <div class="progress-section-heading">
+            <p class="business-kicker">Chapter learning focus</p>
+            <h2>Three ways to grow with purpose</h2>
+        </div>
+        <div class="business-reflection-grid">
+            <article class="business-note business-note-dark"><span class="business-note-number">01</span><h3>Expand services or products</h3><p>Develop new offerings for existing target customers that fit the core business and solve a related need.</p></article>
+            <article class="business-note"><span class="business-note-number">02</span><h3>Expand the target market</h3><p>Research a new group or area, then plan how to reach more customers without letting service quality fall.</p></article>
+            <article class="business-note business-note-accent"><span class="business-note-number">03</span><h3>Compete for more market share</h3><p>Understand what competitors do well and improve quality or customer value so people have a reason to switch.</p></article>
+        </div>
+    </section>
+
+    <section class="progress-opportunity">
+        <div><p class="business-kicker">Plan before expanding</p><h2>Growth should follow evidence and capacity.</h2></div>
+        <p>Before committing resources, compare customer demand with the money, people, time, and equipment available. Identify what must be true first, what could go wrong, and how to preserve the dependable IT support, cybersecurity guidance, and cloud administration at the center of the business.</p>
+    </section>
+
+    <section class="progress-section">
+        <div class="progress-section-heading">
+            <p class="business-kicker">Saving and cutting costs</p>
+            <h2>Build a stronger financial base</h2>
+            <p>Consistent savings can create flexibility for future opportunities. Cost reductions should protect the work that produces the most value for customers.</p>
+        </div>
+        <div class="business-reflection-grid">
+            <article class="business-note"><span class="business-note-number">SAVE</span><h3>Make it consistent</h3><p>Choose a realistic amount to set aside each week and review progress regularly.</p></article>
+            <article class="business-note business-note-accent"><span class="business-note-number">FOCUS</span><h3>Keep what earns</h3><p>Prioritize the services that customers value and that contribute most to sustainable income.</p></article>
+            <article class="business-note business-note-dark"><span class="business-note-number">REDUCE</span><h3>Spend deliberately</h3><p>Reuse or share equipment, use suitable technology, compare suppliers, and negotiate before buying.</p></article>
+        </div>
+    </section>
+
+    <section class="progress-section progress-commitments">
+        <div class="progress-section-heading"><p class="business-kicker">Before the next review</p><h2>Actions to carry into the business notebook</h2></div>
+        <div class="commitment-grid">
+            <div><span class="commitment-status">Choose</span><strong>Select a first growth path</strong><p>Record which of the three paths fits the business best and why.</p></div>
+            <div><span class="commitment-status">Check</span><strong>Set readiness conditions</strong><p>Write down the demand, capacity, and resources needed before expanding.</p></div>
+            <div><span class="commitment-status">Plan</span><strong>Prepare for risks</strong><p>Note likely obstacles and a practical response for each one.</p></div>
+            <div><span class="commitment-status">Save</span><strong>Choose costs to reduce</strong><p>Identify two costs to cut and estimate the monthly savings.</p></div>
+        </div>
+    </section>
+
+    <div class="progress-footer-actions">
+        <a class="btn business-btn" href="{{ url_for('static', filename='Starting and Growing My Business - Chapter 9 Assignment - Growing My Business - Completed.docx') }}">Open completed assignment draft</a>
+        <a class="btn btn-secondary" href="{{ url_for('static', filename='Starting and Growing My Business - Chapter 9 Assignment - Growing My Business.docx') }}">Open original blank assignment</a>
+        <a class="btn btn-secondary" href="{{ url_for('business_journey') }}">Return to learning journal</a>
+    </div>
+    <p class="progress-back-link">The completed file is a draft. Confirm bracketed personal details, real customer feedback, savings amounts, and signatures before submitting.</p>
+</main>
+{% endblock %}
