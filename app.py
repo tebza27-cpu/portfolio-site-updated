@@ -805,6 +805,57 @@ BUSINESS_WEEKS = [
     }
 ]
 
+DAILY_CUSTOMER_TIPS = [
+    {
+        'category': 'Customer care',
+        'title': 'Ask before you advise',
+        'advice': 'Start every support conversation by asking what the customer is trying to achieve, what has already been tried, and what the problem is costing them.',
+        'action': 'Today, write down the customer\'s goal before recommending a solution.'
+    },
+    {
+        'category': 'Cybersecurity',
+        'title': 'Make one account safer',
+        'advice': 'Choose one important account and strengthen it with a unique password and multi-factor authentication.',
+        'action': 'Offer a short, affordable security check to a person or small business that needs help.'
+    },
+    {
+        'category': 'Affordability',
+        'title': 'Lead with the smallest useful solution',
+        'advice': 'Customers with limited budgets still deserve useful support. Solve the most urgent problem first and explain what can wait.',
+        'action': 'Give a clear low-cost option before discussing any larger package.'
+    },
+    {
+        'category': 'Customer loyalty',
+        'title': 'Follow up after the fix',
+        'advice': 'A short follow-up shows that the relationship matters after payment and helps you discover problems before they become complaints.',
+        'action': 'Contact one previous customer and ask whether the solution is still working.'
+    },
+    {
+        'category': 'Value',
+        'title': 'Explain the outcome, not only the task',
+        'advice': 'Customers buy confidence, saved time, and reduced risk. Describe how your work improves their day-to-day operations.',
+        'action': 'Rewrite one service description so it starts with the customer benefit.'
+    },
+    {
+        'category': 'Record keeping',
+        'title': 'Record every enquiry',
+        'advice': 'A simple log of enquiries, source, need, response, and outcome helps you learn which communication channels actually produce customers.',
+        'action': 'Add today\'s enquiries to your business notebook or spreadsheet.'
+    },
+    {
+        'category': 'Trust',
+        'title': 'Set expectations clearly',
+        'advice': 'Explain the scope, price, timing, and next step before beginning work. Clarity prevents misunderstandings and builds confidence.',
+        'action': 'Send a written summary before your next support session.'
+    },
+    {
+        'category': 'Learning',
+        'title': 'Turn feedback into improvement',
+        'advice': 'Listen for repeated customer questions. They may reveal a missing guide, package, or service that could help more people.',
+        'action': 'Write down one customer question that could become a helpful post.'
+    }
+]
+
 @app.route('/business-journey/weeks')
 def business_weeks():
     return render_template('business_weeks.html', weeks=BUSINESS_WEEKS)
@@ -815,7 +866,13 @@ def business_progress():
 
 @app.route('/business-journey/customers')
 def business_customers():
-    return render_template('business_customers.html')
+    today = datetime.now().date()
+    daily_tip = DAILY_CUSTOMER_TIPS[today.toordinal() % len(DAILY_CUSTOMER_TIPS)]
+    return render_template(
+        'business_customers.html',
+        daily_tip=daily_tip,
+        daily_tip_date=today.strftime('%d %B %Y')
+    )
 
 @app.route('/business-journey/growth')
 def business_growth():

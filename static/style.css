@@ -57,7 +57,7 @@ body.home-theme .btn:hover { text-decoration:none; }
 .weekly-next-entry { border-left:3px solid #c47f55; margin-top:26px; padding:6px 0 6px 20px; }
 .weekly-next-entry h3 { color:#183b3f; margin:7px 0 5px; }
 .weekly-next-entry p { color:#526168; margin:0; }
-@media (max-width:760px) { .business-hero { grid-template-columns:1fr; padding:34px 26px; } .business-hero-mark { border-left:0; border-top:1px solid #6d918b; padding:20px 0 0; } .business-intro,.business-next-step { grid-template-columns:1fr; gap:20px; } .business-reflection-grid,.business-habits { grid-template-columns:1fr; } }
+@media (max-width:760px) { .business-hero { grid-template-columns:1fr; padding:34px 26px; } .business-hero-mark { border-left:0; border-top:1px solid #6d918b; padding:20px 0 0; } .business-intro,.business-next-step,.daily-tip { grid-template-columns:1fr; gap:20px; } .business-reflection-grid,.business-habits { grid-template-columns:1fr; } .daily-tip-content { border-left:0; border-top:1px solid #b9c9c4; padding:20px 0 0; } }
 
 .business-progress-page { max-width: 980px; margin: 0 auto; color: #24313a; }
 .progress-back-link { display: inline-block; color: #183b3f; font-weight: 700; margin: 0 0 18px; }
@@ -70,6 +70,14 @@ body.home-theme .btn:hover { text-decoration:none; }
 .progress-summary strong { color: #e1aa79; font-family: Georgia, serif; font-size: 2rem; margin-bottom: 4px; }
 .progress-summary span { color: #d7e0dc; font-size: .9rem; }
 .progress-section { padding: 0 0 42px; }
+.daily-tip { align-items: stretch; background: #e4eee9; border-radius: 8px; display: grid; grid-template-columns: minmax(220px,.8fr) minmax(0,1.2fr); gap: 30px; margin: 0 0 42px; padding: 30px; }
+.daily-tip-heading h2 { color: #183b3f; font-family: Georgia,serif; font-size: 2.15rem; font-weight: 400; line-height: 1.08; margin: 8px 0; }
+.daily-tip-date { color: #526168; display: block; font-size: .88rem; }
+.daily-tip-category { color: #c47f55; font-size: .82rem; font-weight: 700; letter-spacing: .08em; margin: 0; text-transform: uppercase; }
+.daily-tip-content { align-self: center; border-left: 1px solid #b9c9c4; color: #526168; padding-left: 30px; }
+.daily-tip-content p { margin: 0 0 14px; }
+.daily-tip-content p:last-child { margin-bottom: 0; }
+.daily-tip-content strong { color: #183b3f; }
 .progress-section-heading { margin-bottom: 24px; }
 .progress-section-heading h2, .progress-opportunity h2 { color: #183b3f; font-family: Georgia, serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; margin: 0; }
 .progress-track { border-left: 3px solid #b9c9c4; padding-left: 26px; }
@@ -111,6 +119,7 @@ a:hover { text-decoration: underline; }
 .contact-service-list ul { color: #526168; margin: 0; padding-left: 20px; }
 .contact-service-list li { margin-bottom: 10px; }
 @media (max-width: 760px) { .contact-business-section { grid-template-columns: 1fr; padding: 24px; } .contact-service-list { border-left: 0; border-top: 1px solid #b9c9c4; padding: 22px 0 0; } }
+
 .conference-page { color: #24313a; margin: 0 auto; max-width: 1120px; }
 .conference-hero { align-items: end; background: #183b3f; border-radius: 8px; color: #f5f0e8; display: grid; gap: 28px; grid-template-columns: minmax(0,1fr) 210px; margin-bottom: 42px; padding: 48px; }
 .conference-eyebrow { color: #e1aa79; font-size: .78rem; font-weight: 700; letter-spacing: .12em; margin: 0 0 12px; text-transform: uppercase; }

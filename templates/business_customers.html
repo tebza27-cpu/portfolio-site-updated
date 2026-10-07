@@ -35,6 +35,19 @@
         <p>The assignment's Make-A-Sale Challenge turns learning into evidence. I will record what I sold, who bought it, the price, and what the experience taught me about my customer, message, or pricing.</p>
     </section>
 
+    <section class="daily-tip" aria-labelledby="daily-tip-title">
+        <div class="daily-tip-heading">
+            <p class="business-kicker">Daily customer advice</p>
+            <span class="daily-tip-date">{{ daily_tip_date }}</span>
+            <h2 id="daily-tip-title">{{ daily_tip.title }}</h2>
+            <p class="daily-tip-category">{{ daily_tip.category }}</p>
+        </div>
+        <div class="daily-tip-content">
+            <p>{{ daily_tip.advice }}</p>
+            <p><strong>Today's action:</strong> {{ daily_tip.action }}</p>
+        </div>
+    </section>
+
     <section class="progress-section">
         <div class="progress-section-heading">
             <p class="business-kicker">Ready to share</p>
