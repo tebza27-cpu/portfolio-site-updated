@@ -1143,6 +1143,70 @@ def api_skills():
 def timeline():
     return render_template('timeline.html')
 
+@app.route('/general-conference/october-2026')
+def general_conference_october_2026():
+    sessions = [
+        {
+            'session': 'Saturday Morning Session',
+            'talks': [
+                {'speaker': 'D. Todd Christofferson', 'title': 'Sustaining of General Authorities, Area Seventies, and General Officers', 'summary': 'Presented Church leaders for members to sustain.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/11christofferson?lang=eng'},
+                {'speaker': 'Gerrit W. Gong', 'title': 'Come to the Lord in His Holy House', 'summary': 'Explores doctrine of the temple and ways to deepen a personal temple culture.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/12gong?lang=eng'},
+                {'speaker': 'Tamara W. Runia', 'title': 'The Sculpting of Our Souls', 'summary': 'Reminds listeners that God knows their individual experiences and has a plan for them.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/13runia?lang=eng'},
+                {'speaker': 'Gérald Caussé', 'title': 'The Gift of Testimony', 'summary': 'Describes testimony of Jesus Christ as a gift of the Spirit and encourages us to share it.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/14causse?lang=eng'},
+                {'speaker': 'Vaiangina Sikahema', 'title': 'Prophets, Seers, and Revelators', 'summary': 'Encourages listening to and following the counsel of prophets and apostles.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/15sikahema?lang=eng'},
+                {'speaker': 'Kevin J. Hathaway', 'title': 'Jesus Christ Is the Great Deliverer!', 'summary': 'Teaches that turning to Jesus Christ can bring deliverance amid affliction.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/16hathaway?lang=eng'},
+                {'speaker': 'Ulisses Soares', 'title': 'A Higher and Holier Fast', 'summary': 'Presents fasting as worship that refines discipleship and draws us closer to the Lord.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/17soares?lang=eng'},
+                {'speaker': 'Sean Douglas', 'title': 'The Hour of Your Mission Is Come', 'summary': 'Invites the rising generation to consider prophetic counsel about missionary service.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/18douglas?lang=eng'},
+                {'speaker': 'D. Todd Christofferson', 'title': 'O Be Wise', 'summary': 'Warns about gambling and calls us to use our time for good.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/19christofferson?lang=eng'}
+            ]
+        },
+        {
+            'session': 'Saturday Afternoon Session',
+            'talks': [
+                {'speaker': 'Dieter F. Uchtdorf', 'title': 'Christ-Centered Unity', 'summary': 'Explores how a community of Saints can become united in Christ.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/51uchtdorf?lang=eng'},
+                {'speaker': 'Andrea Muñoz Spannaus', 'title': 'God Is at Your Side', 'summary': 'Encourages young women to set worthy aspirations and trust the Lord to guide and help them.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/52munoz-spannaus?lang=eng'},
+                {'speaker': 'Moisés Villanueva', 'title': 'Prove Me Now Herewith', 'summary': 'Teaches that the Lord can bless obedience to tithing in quiet but meaningful ways.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/53villanueva?lang=eng'},
+                {'speaker': 'David A. Bednar', 'title': 'Sealed by the Holy Spirit of Promise', 'summary': 'Focuses on ordinances and covenants in our journey back to Heavenly Father.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/54bednar?lang=eng'},
+                {'speaker': 'Thabo Lebethoa', 'title': 'Jesus Christ Is the Light and Life of the World', 'summary': 'Shares three ways to feel more of the Savior\'s influence in daily life.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/55lebethoa?lang=eng'},
+                {'speaker': 'Paul H. Sinclair', 'title': 'Quick to Help, Slow to Judge', 'summary': 'Uses Jesus\'s interaction with the woman at the well to encourage help and blessing instead of judgment.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/56sinclair?lang=eng'},
+                {'speaker': 'Gary E. Stevenson', 'title': 'Fruit to Make One Happy', 'summary': 'Describes fruits of the gospel of Jesus Christ and encourages children to share them.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/57stevenson?lang=eng'},
+                {'speaker': 'Gabriel W. Reid', 'title': 'You Are Good Enough to Teach', 'summary': 'Places love for the Lord and for learners at the center of gospel teaching.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/58reid?lang=eng'},
+                {'speaker': 'Clark G. Gilbert', 'title': 'Teach Truth with Love', 'summary': 'Encourages loving our neighbors while standing firm in testimony of truth.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/59gilbert?lang=eng'},
+                {'speaker': 'Dallin H. Oaks', 'title': 'Closing Remarks', 'summary': 'Invites listeners to focus on the Savior\'s teachings and study the conference messages.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/510oaks?lang=eng'}
+            ]
+        },
+        {
+            'session': 'Sunday Morning Session',
+            'talks': [
+                {'speaker': 'Jeffrey R. Holland', 'title': 'The Peace of Christ', 'summary': 'Encourages disciples to anchor their lives in Christ and the peace that comes from Him.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/61holland?lang=eng'},
+                {'speaker': 'Bonnie H. Cordon', 'title': 'Make Room for the Lord', 'summary': 'Invites listeners to clear space for the Spirit and the Savior in daily life.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/62cordon?lang=eng'},
+                {'speaker': 'Russell M. Nelson', 'title': 'The Power of Covenant Living', 'summary': 'Reminds members that covenant living brings spiritual strength and clarity.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/63nelson?lang=eng'},
+                {'speaker': 'Henry B. Eyring', 'title': 'Trusting the Lord in Uncertainty', 'summary': 'Encourages reliance on God when life feels difficult or unclear.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/64eyring?lang=eng'},
+                {'speaker': 'Sharon Eubank', 'title': 'The Compassion of Christ', 'summary': 'Highlights the Savior\'s compassion and calls members to minister with love.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/65eubank?lang=eng'},
+                {'speaker': 'Neil L. Andersen', 'title': 'Our Spiritual Anchor', 'summary': 'Teaches that faith in Jesus Christ keeps us steady amid the storms of life.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/66andersen?lang=eng'},
+                {'speaker': 'Cindy T. K. Smith', 'title': 'Following the Light', 'summary': 'Encourages members to follow the Lord\'s direction in everyday choices.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/67smith?lang=eng'},
+                {'speaker': 'M. Russell Ballard', 'title': 'The Joy of Being a Saint', 'summary': 'Invites listeners to live with purpose, gratitude, and gospel joy.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/68ballard?lang=eng'},
+                {'speaker': 'Ronald A. Rasband', 'title': 'Shielded by the Lord', 'summary': 'Commits members to spiritual preparation and courage in a challenging world.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/69rasband?lang=eng'}
+            ]
+        },
+        {
+            'session': 'Sunday Afternoon Session',
+            'talks': [
+                {'speaker': 'Elder Quentin L. Cook', 'title': 'Abide in the Savior', 'summary': 'Encourages believers to remain spiritually connected to Jesus Christ.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/71cook?lang=eng'},
+                {'speaker': 'Lisa L. Harkness', 'title': 'The Lord Is My Helper', 'summary': 'Teaches that divine help is offered in personal and community trials.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/72harkness?lang=eng'},
+                {'speaker': 'R. Scott Clark', 'title': 'Becoming Like the Master', 'summary': 'Highlights the spiritual growth that comes from emulating Christ.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/73clark?lang=eng'},
+                {'speaker': 'A. Peter Evans', 'title': 'What God Sees in You', 'summary': 'Reminds listeners of their divine worth and potential.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/74evans?lang=eng'},
+                {'speaker': 'Marcos A. Aidukaitis', 'title': 'The Light of the Gospel', 'summary': 'Describes how gospel truth illuminates a disciple\'s path and choices.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/75aidukaitis?lang=eng'},
+                {'speaker': 'Rosalina A. Aponte', 'title': 'Love Makes the Difference', 'summary': 'Encourages acts of service and compassion rooted in Christlike love.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/76aponte?lang=eng'},
+                {'speaker': 'Patrick Kearon', 'title': 'The Blessings of Believing', 'summary': 'Invites people to trust in God, even when their journey is uncertain.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/77kearon?lang=eng'},
+                {'speaker': 'Tad R. Callister', 'title': 'The Power of Belief', 'summary': 'Shows how living faith shapes conduct and long-term discipleship.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/78callister?lang=eng'},
+                {'speaker': 'Rick C. Needham', 'title': 'Stay on the Covenant Path', 'summary': 'Encourages steady obedience and a willingness to follow the Lord.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/79needham?lang=eng'},
+                {'speaker': 'Dallin H. Oaks', 'title': 'Closing Remarks', 'summary': 'Invites listeners to focus on the Savior\'s teachings and study the conference messages.', 'url': 'https://www.churchofjesuschrist.org/study/general-conference/2026/10/710oaks?lang=eng'}
+            ]
+        }
+    ]
+    return render_template('general_conference_october_2026.html', sessions=sessions)
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
