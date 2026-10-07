@@ -8,12 +8,60 @@
 
     if (!actionList || !customList || !form) return;
 
+    const defaultState = {
+        reflections: {
+            impression: "Jesus Christ is the Deliverer, Comforter, and Light who can carry me through affliction, uncertainty, and discouragement. His promises and the pattern of covenant worship give me hope and steadiness.",
+            change: "I will start by making covenant worship and prayer more deliberate, stop letting fear or discouragement drive my choices, and continue serving with integrity and purpose.",
+            person: "A friend or family member who feels overlooked, discouraged, or burdened. I can reach out, listen, and offer specific help without waiting to be asked."
+        },
+        actions: {
+            revisit: {
+                complete: false,
+                note: "I will study the talk 'Jesus Christ Is the Great Deliverer!' this week and write down one teaching I can apply immediately in my life."
+            },
+            "daily-worship": {
+                complete: false,
+                note: "I will strengthen my scripture study and prayer by setting aside 15 minutes each morning before work and asking for guidance to act with faith and humility."
+            },
+            compassion: {
+                complete: false,
+                note: "I will contact one person who feels alone and offer a specific act of kindness or encouragement by the end of the week."
+            },
+            peacemaker: {
+                complete: false,
+                note: "I will pause before responding in one difficult conversation and choose language that is both truthful and compassionate."
+            },
+            share: {
+                complete: false,
+                note: "I will share a simple testimony that Jesus Christ is a source of peace and deliverance with someone who is struggling or seeking hope."
+            }
+        },
+        custom: [
+            {
+                id: "custom-default-action",
+                text: "Complete one specific act of service or encouragement for someone who seems discouraged or overlooked.",
+                due: "2026-10-10",
+                complete: false
+            }
+        ]
+    };
+
     let saved = {};
     try {
         saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {};
+        if (!saved.reflections && !saved.actions && !saved.custom) {
+            saved = defaultState;
+        }
     } catch {
-        saved = {};
+        saved = defaultState;
     }
+
+    const mergedState = {
+        reflections: { ...defaultState.reflections, ...(saved.reflections || {}) },
+        actions: { ...defaultState.actions, ...(saved.actions || {}) },
+        custom: Array.isArray(saved.custom) && saved.custom.length ? saved.custom : defaultState.custom
+    };
+    saved = mergedState;
 
     const save = () => {
         const state = {
@@ -89,16 +137,16 @@
     };
 
     for (const field of document.querySelectorAll("[data-reflection]")) {
-        field.value = saved.reflections?.[field.dataset.reflection] || "";
+        field.value = saved.reflections?.[field.dataset.reflection] || defaultState.reflections[field.dataset.reflection] || "";
         field.addEventListener("input", save);
     }
 
     for (const card of actionList.querySelectorAll("[data-action-id]")) {
-        const previous = saved.actions?.[card.dataset.actionId] || {};
+        const previous = saved.actions?.[card.dataset.actionId] || defaultState.actions[card.dataset.actionId] || {};
         const checkbox = card.querySelector('input[type="checkbox"]');
         const note = card.querySelector("[data-action-note]");
         checkbox.checked = Boolean(previous.complete);
-        note.value = previous.note || "";
+        note.value = previous.note || defaultState.actions[card.dataset.actionId]?.note || "";
         card.classList.toggle("is-complete", checkbox.checked);
         checkbox.addEventListener("change", () => {
             card.classList.toggle("is-complete", checkbox.checked);
@@ -107,7 +155,7 @@
         note.addEventListener("input", save);
     }
 
-    for (const task of saved.custom || []) renderCustom(task);
+    for (const task of saved.custom || defaultState.custom) renderCustom(task);
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
