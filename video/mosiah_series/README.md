@@ -1,6 +1,6 @@
 # Mosiah Animated Series
 
-This standalone generator creates five narrated MP4 episodes covering Mosiah 1-29. The narration is an original summary, not a verse-by-verse reading; chapter references appear on screen. The illustrated storybook scenes are generated locally, and Windows' built-in speech synthesis supplies the narration.
+This standalone generator creates five narrated MP4 episodes covering Mosiah 1-29. The narration is an original summary, not a verse-by-verse reading; chapter references appear on screen. The illustrated storybook scenes are generated locally, and Windows' built-in speech synthesis supplies the narration. The episodes run about 2:49-3:02 each and can be watched without a third-party account.
 
 This is an independent adaptation, not produced by or affiliated with The Church of Jesus Christ of Latter-day Saints. Source: [Book of Mosiah](https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah?lang=eng).
 
@@ -21,4 +21,4 @@ The Abinadi pilot uses drawn characters with animated speaking poses, acted dial
 python video/mosiah_series/generate_pilot.py
 ```
 
-The pilot is saved under `video/mosiah_series/rendered/pilot-abinadi/`. It uses Windows voices and local vector-style art; no external AI video service is connected to this workspace.
+The pilot is saved under `video/mosiah_series/rendered/pilot-abinadi/` and runs about 2:49. It uses Windows voices and local vector-style art; no external AI video service or account is needed to generate or watch it.
