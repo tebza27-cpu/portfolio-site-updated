@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file, abort, request, jsonify, url_for, redirect
+from flask import Flask, render_template, send_file, send_from_directory, abort, request, jsonify, url_for, redirect
 from pathlib import Path
 import os
 import json
@@ -21,6 +21,49 @@ except ImportError:
     RealDictCursor = None
 
 app = Flask(__name__)
+
+MOSIAH_EPISODES = [
+    {
+        'slug': '01-king-benjamin',
+        'title': 'A King Who Served',
+        'chapters': 'Mosiah 1-6',
+        'summary': 'King Benjamin teaches service, covenant, and remembrance as Mosiah takes the throne.',
+        'video': '01-king-benjamin.mp4',
+        'poster': 'scene-01.png',
+    },
+    {
+        'slug': '02-the-prophet-and-the-king',
+        'title': 'The Prophet and the King',
+        'chapters': 'Mosiah 7-17',
+        'summary': 'Ammon finds Limhi’s people, while Abinadi’s testimony changes Alma’s life.',
+        'video': '02-the-prophet-and-the-king.mp4',
+        'poster': 'scene-01.png',
+    },
+    {
+        'slug': '03-waters-and-wilderness',
+        'title': 'Waters and Wilderness',
+        'chapters': 'Mosiah 18-25',
+        'summary': 'Alma’s community and Limhi’s people find deliverance and reunite in Zarahemla.',
+        'video': '03-waters-and-wilderness.mp4',
+        'poster': 'scene-01.png',
+    },
+    {
+        'slug': '04-a-change-of-heart',
+        'title': 'A Change of Heart',
+        'chapters': 'Mosiah 26-27',
+        'summary': 'Alma the Younger and the sons of Mosiah turn from opposition to faith and service.',
+        'video': '04-a-change-of-heart.mp4',
+        'poster': 'scene-01.png',
+    },
+    {
+        'slug': '05-a-new-kind-of-government',
+        'title': 'A New Kind of Government',
+        'chapters': 'Mosiah 28-29',
+        'summary': 'Missionaries depart, records are translated, and the people choose a system of judges.',
+        'video': '05-a-new-kind-of-government.mp4',
+        'poster': 'scene-01.png',
+    },
+]
 
 # -------- HELPER FUNCTIONS --------
 def is_local_access():
@@ -773,6 +816,18 @@ def support():
 @app.route('/byu')
 def byu():
     return render_template('byu.html')
+
+@app.route('/mosiah')
+def mosiah_series():
+    return render_template('mosiah_series.html', episodes=MOSIAH_EPISODES)
+
+@app.route('/media/mosiah/<episode_slug>/<filename>')
+def mosiah_media(episode_slug, filename):
+    episode = next((item for item in MOSIAH_EPISODES if item['slug'] == episode_slug), None)
+    if not episode or filename not in {episode['video'], episode['poster']}:
+        abort(404)
+    media_dir = Path(app.root_path) / 'video' / 'mosiah_series' / 'rendered' / episode_slug
+    return send_from_directory(media_dir, filename, conditional=True)
 
 @app.route('/business-journey')
 def business_journey():

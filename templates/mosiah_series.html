@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}The Book of Mosiah | Sifiso Mokhele{% endblock %}
+{% block content %}
+<main class="mosiah-page">
+    <header class="mosiah-hero">
+        <div>
+            <p class="mosiah-eyebrow">An illustrated scripture series</p>
+            <h1>The Book of Mosiah</h1>
+            <p class="mosiah-hero-copy">Five short animated episodes follow the people, prophets, and turning points across Mosiah 1–29.</p>
+            <div class="mosiah-hero-links">
+                <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah?lang=eng" target="_blank" rel="noopener noreferrer">Read Mosiah at ChurchofJesusChrist.org</a>
+                <a href="https://github.com/tebza27-cpu/portfolio-site-updated/tree/main/video/mosiah_series" target="_blank" rel="noopener noreferrer">View the project on GitHub</a>
+            </div>
+        </div>
+        <p class="mosiah-hero-index"><strong>05</strong><span>episodes<br>one book</span></p>
+    </header>
+
+    <section class="mosiah-episodes" aria-label="Mosiah video episodes">
+        {% for episode in episodes %}
+        <article class="mosiah-episode">
+            <div class="mosiah-episode-heading">
+                <p>{{ episode.chapters }}</p>
+                <h2>{{ episode.title }}</h2>
+            </div>
+            <video controls preload="metadata" playsinline poster="{{ url_for('mosiah_media', episode_slug=episode.slug, filename=episode.poster) }}">
+                <source src="{{ url_for('mosiah_media', episode_slug=episode.slug, filename=episode.video) }}" type="video/mp4">
+                Your browser does not support the video element.
+            </video>
+            <div class="mosiah-episode-caption">
+                <p>{{ episode.summary }}</p>
+                <a href="{{ url_for('mosiah_media', episode_slug=episode.slug, filename=episode.video) }}" download>Download MP4</a>
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+
+    <footer class="mosiah-note">
+        <p>Independent adaptation. Narration summarizes the account in original wording; chapter references are provided for reading alongside the source text.</p>
+    </footer>
+</main>
+{% endblock %}

@@ -1629,3 +1629,32 @@ nav a.active {
 .contact-box a:hover {
     text-decoration: underline;
 }
+
+.mosiah-page { color:#24313a; margin:0 auto; max-width:1220px; }
+.mosiah-hero { align-items:end; background:#193e3d; color:#f1eddf; display:grid; gap:40px; grid-template-columns:minmax(0,1fr) 150px; margin:0 0 38px; padding:46px; }
+.mosiah-eyebrow { color:#e1aa79; font-size:.78rem; font-weight:700; margin:0 0 12px; text-transform:uppercase; }
+.mosiah-hero h1 { color:#f5f0e8; font-family:Georgia,serif; font-size:3.5rem; font-weight:400; line-height:1.05; margin:0 0 15px; }
+.mosiah-hero-copy { color:#d7e0dc; font-size:1.05rem; margin:0; max-width:700px; }
+.mosiah-hero-links { display:flex; flex-wrap:wrap; gap:20px; margin-top:24px; }
+.mosiah-hero-links a { color:#f2c66e; font-size:.92rem; font-weight:700; text-decoration:underline; text-underline-offset:4px; }
+.mosiah-hero-index { align-items:center; border-left:1px solid #6d918b; display:flex; gap:14px; margin:0; padding:8px 0 8px 24px; }
+.mosiah-hero-index strong { color:#e1aa79; font-family:Georgia,serif; font-size:4rem; font-weight:400; line-height:1; }
+.mosiah-hero-index span { color:#d7e0dc; font-size:.9rem; line-height:1.35; }
+.mosiah-episodes { display:grid; gap:22px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.mosiah-episode { background:#fff; border:1px solid #d7dedb; min-width:0; }
+.mosiah-episode-heading { padding:20px 22px 12px; }
+.mosiah-episode-heading p { color:#b66f46; font-size:.78rem; font-weight:700; margin:0 0 5px; text-transform:uppercase; }
+.mosiah-episode-heading h2 { color:#183b3f; font-family:Georgia,serif; font-size:1.55rem; font-weight:400; line-height:1.15; margin:0; }
+.mosiah-episode video { background:#193e3d; display:block; aspect-ratio:16/9; width:100%; }
+.mosiah-episode-caption { align-items:start; display:flex; gap:18px; justify-content:space-between; padding:16px 22px 20px; }
+.mosiah-episode-caption p { color:#526168; font-size:.92rem; margin:0; }
+.mosiah-episode-caption a { color:#245d59; flex:0 0 auto; font-size:.88rem; font-weight:700; }
+.mosiah-note { border-top:1px solid #d7dedb; color:#526168; font-size:.88rem; margin-top:34px; padding:14px 0 28px; }
+.mosiah-note p { margin:0; }
+@media (max-width:760px) {
+    .mosiah-hero { grid-template-columns:1fr; padding:30px 24px; }
+    .mosiah-hero h1 { font-size:2.7rem; }
+    .mosiah-hero-index { border-left:0; border-top:1px solid #6d918b; padding:16px 0 0; }
+    .mosiah-episodes { grid-template-columns:1fr; }
+    .mosiah-episode-caption { flex-direction:column; }
+}
