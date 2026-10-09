@@ -24,6 +24,14 @@ app = Flask(__name__)
 
 MOSIAH_EPISODES = [
     {
+        'slug': 'pilot-abinadi',
+        'title': 'Abinadi Before King Noah',
+        'chapters': 'Mosiah 11-17',
+        'summary': 'An acted-out cartoon pilot: Abinadi warns Noah, faces the king’s court, and Alma preserves his testimony.',
+        'video': 'pilot-abinadi.mp4',
+        'poster': 'scene-01.png',
+    },
+    {
         'slug': '01-king-benjamin',
         'title': 'A King Who Served',
         'chapters': 'Mosiah 1-6',
