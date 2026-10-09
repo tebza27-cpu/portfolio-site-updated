@@ -33,9 +33,9 @@ MOSIAH_EPISODES = [
     },
     {
         'slug': '01-king-benjamin',
-        'title': 'A King Who Served',
-        'chapters': 'Mosiah 1-6',
-        'summary': 'King Benjamin teaches service, covenant, and remembrance as Mosiah takes the throne.',
+        'title': "King Benjamin's Address",
+        'chapters': 'Mosiah 2-5',
+        'summary': 'A 15-minute narrated story of Benjamin’s address: service, mercy, Christ, and the covenant his people make.',
         'video': '01-king-benjamin.mp4',
         'poster': 'scene-01.png',
     },

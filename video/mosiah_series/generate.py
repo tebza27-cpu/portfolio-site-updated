@@ -8,6 +8,7 @@ import subprocess
 import wave
 from dataclasses import dataclass
 from pathlib import Path
+from xml.sax.saxutils import escape, quoteattr
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -23,6 +24,7 @@ class Scene:
     text: str
     reference: str
     motif: str
+    caption: str = ""
 
 
 @dataclass(frozen=True)
@@ -34,15 +36,30 @@ class Episode:
 
 
 EPISODES = (
-    Episode("01-king-benjamin", "A KING WHO SERVED", "MOSIAH 1-6", (
-        Scene("A kingdom prepares for change", "As King Benjamin grew old, he saw that his people needed more than a new ruler. They needed to remember what had made their community strong. He gathered his sons and taught them the language, history, and prophecies of their ancestors. Their traditions had survived because earlier generations had kept records and taught them carefully.", "Mosiah 1", "records"),
-        Scene("The records pass to Mosiah", "Benjamin entrusted Mosiah with the plates, the Liahona, the sword of Laban, and other sacred objects. These were not trophies for a throne room. They were witnesses that the people had a history and a covenant. Mosiah would inherit both the authority to govern and the responsibility to preserve what the people had received.", "Mosiah 1", "records"),
-        Scene("A king who worked beside his people", "Before his final address, Benjamin reminded the people how he had governed. He had not demanded their silver, gold, or labor to enrich himself. He had served with his own hands. A leader, he taught, should not assume that a title makes one person more valuable than another. Authority is a charge to serve.", "Mosiah 2", "assembly"),
-        Scene("The gathering at the temple", "Families came to the temple and camped nearby, eager to hear Benjamin. The crowd was so large that the king's voice could not reach everyone, so his words were written and carried among them. The image of a whole people listening together frames the address: the covenant was not private status, but a shared way of life.", "Mosiah 2", "gathering"),
-        Scene("Service is never wasted", "Benjamin asked the people to consider how much they depended on God. Even when they served one another, they could never repay the Creator for life and every blessing. Yet God asked them to care for their neighbors. When they helped someone in need, Benjamin taught, they were serving God as well as that person.", "Mosiah 2-4", "assembly"),
-        Scene("A message of hope", "Benjamin shared an angel's message about Jesus Christ: his birth, ministry, healing, suffering, death, and resurrection. The people heard that redemption was not earned by status or wealth. They were invited to trust in Christ, change their hearts, and become willing to follow him. The king's final lesson turned attention from his own reign to the King of Heaven.", "Mosiah 3-4", "light"),
-        Scene("Remember those in need", "The people fell to the ground, aware of their dependence on God, and sought forgiveness. Benjamin taught them how to retain that change: believe in God, pray, and give generously according to what they could spare. The poor should not be turned away simply because a giver had little. Compassion, not the size of a gift, showed a changed heart.", "Mosiah 4", "assembly"),
-        Scene("A covenant and a new name", "The people entered a covenant and took upon themselves the name of Christ. Benjamin recorded their names, appointed priests, and urged them to remain steadfast in good works. When his son Mosiah began to reign, the kingdom continued, but the people's task remained the same: remember the source of their blessings and make that memory visible in how they treated each other.", "Mosiah 5-6", "covenant"),
+    Episode("01-king-benjamin", "KING BENJAMIN'S ADDRESS", "MOSIAH 2-5", (
+        Scene("A call to gather", "King Benjamin sent a proclamation throughout the land, asking his people to come to the temple in Zarahemla. The gathering had a purpose beyond ceremony. Benjamin wanted the people to hear his counsel, to witness the transfer of the kingdom to his son Mosiah, and to understand what kind of people they were choosing to become. Families prepared for the journey, carrying food and belongings and making camp near the temple. The summons reached rich and poor alike. Each household came to hear the same message, and each person would have to decide what to do with it.", "Mosiah 2:1", "journey", "The people are called to gather"),
+        Scene("Tents around the temple", "The people arrived in large numbers and pitched their tents with their doors facing the temple. The arrangement turned the whole encampment toward a shared center. Parents settled children, neighbors greeted one another, and the camp filled with the small sounds of a community preparing to listen. This was not only a royal announcement. Benjamin's people came as families and as a covenant people, bringing their lives and questions with them. They would hear about government, faith, service, mercy, and the Savior. The message began with a simple act: set aside time, come together, and listen with an open heart.", "Mosiah 2:1-4", "gathering", "Families gather around the temple"),
+        Scene("A message carried to every tent", "Because the crowd was so large, Benjamin spoke from a tower where more people could see and hear him. Even then, he arranged for his words to be written and carried to those beyond the reach of his voice. The detail matters: the address was not meant only for those closest to the king. It was to reach every tent. Benjamin wanted the people to hear clearly, consider carefully, and remember. A written record would also carry the address beyond that day, giving later generations a chance to reflect on the choices made in Zarahemla.", "Mosiah 2:5-8", "records", "His words are written and shared"),
+        Scene("Mosiah is presented as king", "Benjamin spoke of his son Mosiah and the transition of the kingdom. The moment could have centered on inheritance and power, but Benjamin used it to teach accountability. He called the people to open their ears and their hearts, not because the speaker was a king, but because the message deserved honest consideration. Mosiah would lead after his father, yet neither title could replace the people's own responsibility before God. A government could be transferred in a public gathering; a faithful life had to be chosen by each person, one decision at a time.", "Mosiah 2:8-9", "palace", "Mosiah is named as the next king"),
+        Scene("A clear conscience", "Benjamin began by asking the people to listen with attention and to judge his words fairly. He did not claim perfection. Instead, he described the work he had done and invited the people to speak if he had wronged them or taken anything unfairly. He wanted to stand before them with a clear conscience, having served rather than used them. That invitation made the king answerable to the people he governed. Authority did not place him beyond correction. Benjamin's first example was humility: before instructing others, he was willing to account for his own conduct.", "Mosiah 2:9-11", "assembly", "A king answers for his service"),
+        Scene("Power used for service", "Benjamin reminded the people that he had not sought wealth, praise, or control for himself. He had not burdened them with taxes to support a life of ease, and he had worked with his own hands. He described leadership as labor carried for the benefit of others. These details made his counsel concrete. Service was not an attractive word placed over privilege; it was what a ruler did with his time and strength. Benjamin's years on the throne could now become a lesson for Mosiah and for everyone listening: leadership is trustworthy when it is joined to restraint, honesty, and care.", "Mosiah 2:12-14", "assembly", "Benjamin describes a life of service"),
+        Scene("No one stands above a neighbor", "Benjamin said he did not wish to boast, even though the people could speak for the work he had done. He asked them to learn from his example and not to suppose that one person was better than another. Their lives were connected. Families depended on one another, and the community's strength came from people keeping faith and helping each other. A title might place someone in a particular duty, but it did not make that person's life more precious. Benjamin urged the people to set aside pride and envy and to see their neighbors as fellow children of God.", "Mosiah 2:15-18", "gathering", "Neighbors are equal in worth"),
+        Scene("Serving God by serving people", "Benjamin taught that when people served one another, they were also serving God. He asked them to consider how much they depended on God for life, food, and the ability to act. Gratitude was not meant to remain a private feeling. It could become patience with a child, help for a neighbor, or a fair decision made by someone in authority. The service did not need to be dramatic. It needed to be real. In Benjamin's address, love of God and responsibility to people were joined together: faith became visible in how a person treated those nearby.", "Mosiah 2:17-20", "gathering", "Faith becomes visible in service"),
+        Scene("Remember the source of every blessing", "Benjamin asked the people to remember that life itself was a gift. Even if they spent every day serving God, they could not place God in their debt. That truth was not meant to make service feel pointless. It was meant to loosen the grip of pride. No one could claim that every success had been earned alone, or that receiving blessings made them superior. The people could choose gratitude instead: accept what they had been given, acknowledge their dependence, and use their strength to lift someone else. Humility, for Benjamin, began with an honest view of where life comes from.", "Mosiah 2:20-25", "light", "Gratitude replaces pride"),
+        Scene("The danger of turning away", "Benjamin warned that a people who had received so much also carried responsibility. If they knowingly rebelled and turned away from God, their choices would bring sorrow and separation. He did not offer easy reassurance that a covenant made once would excuse every later action. Their conduct mattered. A person who had learned what was right could not treat that knowledge casually. Benjamin's warning was serious, but it was given before the message of hope, not instead of it. The people were asked to understand the consequences of their choices so they could choose a better path while there was time.", "Mosiah 2:26-41", "palace", "Choices carry consequences"),
+        Scene("An angel brings a message", "Benjamin told the people that an angel had appeared to him with glad tidings of great joy. The message looked far beyond the king's lifetime. A Savior would be born among humankind, and his name would be Jesus Christ. The angel's words shifted the gathering from the record of Benjamin's rule to a promise of divine deliverance. The people were not asked to trust in a king's strength alone. They were invited to look toward Christ, whose coming would bring healing and hope. Benjamin shared the message carefully so the people could remember both the promise and the path it opened.", "Mosiah 3:1-8", "light", "Benjamin shares the angel's message"),
+        Scene("The Savior ministers among people", "The angel described the life of Jesus Christ: his mother, his birth, the miracles he would perform, and the care he would give to the sick and afflicted. The Savior would teach with authority and show compassion through action. His path would also include rejection and suffering. Benjamin's people heard that the Redeemer was not distant from human pain. He would enter mortal life, meet people in their weakness, and minister among them. The account invited listeners to imagine a Savior whose power was expressed not as domination, but as teaching, healing, sacrifice, and love.", "Mosiah 3:5-10", "assembly", "Christ's ministry brings healing"),
+        Scene("A message of redemption", "The angel's message included the suffering and death of Jesus Christ, as well as his resurrection. The good news did not pretend that sin, grief, or death were unreal. It taught that God had prepared a way to redeem and raise his children. Benjamin asked the people to believe this witness and to remember the name of Christ, for salvation came through him. That belief would call for more than agreement with an idea. It would ask each listener to trust, repent, and allow the Savior's teachings to shape everyday choices.", "Mosiah 3:10-18", "light", "Hope reaches beyond suffering"),
+        Scene("The natural person can change", "Benjamin taught that people could yield to the influence of the Holy Spirit and become more patient, humble, gentle, and full of love. This was not a claim that change came instantly or without effort. The change was a direction: turn away from selfishness and learn to follow God. A person could choose not to be ruled by anger or pride, and could practice kindness even when it was difficult. The Savior's grace offered hope, while each person still had choices to make. The address connected spiritual conversion to recognizable qualities that could be seen in family life and community.", "Mosiah 3:19", "covenant", "A heart learns patience and love"),
+        Scene("The people ask for mercy", "After hearing Benjamin's words, the people fell to the ground. They recognized their need for forgiveness and cried out for mercy through Jesus Christ. Their response was shared, but it was also personal: each one felt the weight of their own life and reached toward God. The gathering grew quiet as they sought a change within themselves. The record describes their hearts as being filled with joy and peace when they received forgiveness. Benjamin's message had moved from a tower and a written record into the inner life of the people who had listened.", "Mosiah 4:1-3", "assembly", "A people seek forgiveness together"),
+        Scene("Keep the change alive", "Benjamin asked whether the people could claim credit for the change they had felt. He taught them to remember their dependence on God, to remain humble, and to keep faith. A moment of peace could become the beginning of a lasting practice. They could pray, watch their words, and turn away from contention. They could remember how it felt to seek mercy and show mercy to others. Benjamin's counsel made conversion practical: keep turning toward God, and let the memory of forgiveness change the way you respond to the people around you.", "Mosiah 4:4-12", "covenant", "Remember mercy in daily life"),
+        Scene("Care begins at home", "Benjamin described what a faithful community might look like in ordinary households. Parents would teach children to care for one another, to walk honestly, and to serve God. Children would learn through words and through the example of adults. Homes could become places where people practiced patience instead of cruelty and honesty instead of deception. These small choices mattered because a community was made of families and neighbors. A covenant was not only something spoken in a large assembly; it continued at home, in the way people treated those closest to them when no crowd was watching.", "Mosiah 4:13-15", "gathering", "Faith is taught at home"),
+        Scene("Give what you are able", "Benjamin turned to people in need. He taught that a person who had only a little could still give, and that those who had more could share according to what they were able. The amount was not the only measure of generosity. What mattered was a willing heart and an honest effort to relieve another person's hardship. No one should be sent away simply because the giver could not solve everything. Even listening, offering what was possible, or treating a person with dignity could be part of compassionate service.", "Mosiah 4:16-21", "assembly", "Generosity is measured by willingness"),
+        Scene("Do not judge the one who asks", "The king cautioned the people not to condemn someone who asked for help. A person might need food, clothing, shelter, or relief from a burden that others could not see. If the giver could not provide everything, they could still respond with kindness rather than accusation. Benjamin asked the people to remember their own dependence on God before looking down on a neighbor. The lesson challenged quick judgments. It encouraged the community to ask what help was possible and to treat a person in need as a neighbor, not as a problem to dismiss.", "Mosiah 4:17-23", "gathering", "Meet a request with compassion"),
+        Scene("Wisdom and order in giving", "Benjamin did not ask the people to give recklessly or pretend that every need could be met at once. He taught them to act in wisdom and order, caring for families while also sharing with others. Some people had means to help; others had little to give. Each could contribute according to their circumstances. The point was to keep a willing heart and avoid using hardship as an excuse for indifference. A community could plan, share responsibility, and respond steadily. Compassion and good judgment belonged together.", "Mosiah 4:24-28", "records", "Give with both compassion and wisdom"),
+        Scene("A covenant changes a people", "Benjamin asked the people whether they believed his words. They answered that they did and described a mighty change in their hearts. They no longer felt inclined to do evil, but wanted to do good continually. Their words marked a turning point. They were not simply moved by a speech; they had begun to choose a new identity and direction. They entered a covenant to do God's will and to keep his commandments. Their commitment joined faith in Christ with the daily work of becoming a more loving people.", "Mosiah 5:1-5", "covenant", "The people describe a change of heart"),
+        Scene("They take upon them the name of Christ", "Benjamin taught the people that through faith they could become children of Christ and take upon them his name. The name represented belonging, but also responsibility. They would be recognized by their loyalty to Christ and by the good they chose to do. Benjamin urged them to remember the covenant, remain steadfast, and not let pride or wrongdoing pull them away. The gathering would end, and the people would return to their homes, but the name they had accepted was meant to travel with them into every part of their lives.", "Mosiah 5:6-15", "covenant", "A name becomes a lifelong commitment"),
+        Scene("A charge to remember", "Benjamin recorded the names of those who had made the covenant and appointed teachers to help them remember. His address had moved through service, humility, the promise of Christ, repentance, generosity, and a new covenant. Now each person would return to familiar work and relationships carrying the message with them. Benjamin's final counsel was not to admire the gathering from a distance, but to live what had been heard. Remember the Lord, help one another, and remain steadfast in good works. The story of this assembly ended with a beginning for the people who had listened.", "Mosiah 5:15", "assembly", "Return home ready to serve"),
     )),
     Episode("02-the-prophet-and-the-king", "THE PROPHET AND THE KING", "MOSIAH 7-17", (
         Scene("A search beyond Zarahemla", "Some time after Mosiah became king, a group led by Ammon traveled south to learn what had happened to people who had left Zarahemla years earlier. The journey was uncertain. They did not know whether Zeniff's colony still lived, or what kind of welcome they would receive. At last they reached the land of Lehi-Nephi and were taken before King Limhi.", "Mosiah 7", "journey"),
@@ -214,7 +231,7 @@ def make_card(episode: Episode, scene: Scene, index: int, path: Path) -> None:
     d.text((x,142), scene.title, font=face(30,True), fill="#f2c66e")
     body = face(23)
     y = 200
-    for line in lines_for(d, scene.text, body, maxw):
+    for line in lines_for(d, scene.caption or scene.text, body, maxw):
         d.text((x,y), line, font=body, fill="#f1eddf")
         y += 34
     d.line((x,HEIGHT-80,WIDTH-48,HEIGHT-80), fill="#67877b", width=2)
@@ -228,16 +245,26 @@ def powershell(script: str) -> None:
     subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-EncodedCommand", command], check=True)
 
 
-def narrate(text: str, target: Path) -> None:
-    encoded = base64.b64encode(text.encode("utf-8")).decode("ascii")
+def narrate(scenes: tuple[Scene, ...], target: Path) -> None:
+    spoken_scenes = "<break time='500ms'/>".join(escape(scene.text) for scene in scenes)
+    ssml = (
+        "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>"
+        f"<voice name={quoteattr(VOICE_NAME)}><prosody rate='-8%'>{spoken_scenes}</prosody></voice></speak>"
+    )
+    ssml_path = target.with_suffix(".ssml")
+    ssml_path.write_text(ssml, encoding="utf-8")
     destination = str(target).replace("'", "''")
+    ssml_source = str(ssml_path).replace("'", "''")
     script = (
         "Add-Type -AssemblyName System.Speech; $s = New-Object System.Speech.Synthesis.SpeechSynthesizer; "
         f"$s.SelectVoice('{VOICE_NAME}'); $s.SetOutputToWaveFile('{destination}'); "
-        f"$text = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('{encoded}')); "
-        "$s.Speak($text); $s.Dispose()"
+        f"$ssml = [IO.File]::ReadAllText('{ssml_source}'); "
+        "try { $s.SpeakSsml($ssml) } finally { $s.Dispose() }"
     )
-    powershell(script)
+    try:
+        powershell(script)
+    finally:
+        ssml_path.unlink(missing_ok=True)
 
 
 def duration(path: Path) -> float:
@@ -261,7 +288,7 @@ def render(episode: Episode, ffmpeg: str) -> None:
     folder = OUT / episode.slug
     folder.mkdir(parents=True, exist_ok=True)
     wav = folder / "narration.wav"
-    narrate(" ".join(scene.text for scene in episode.scenes), wav)
+    narrate(episode.scenes, wav)
     total = duration(wav)
     weights = [len(scene.text.split()) for scene in episode.scenes]
     lengths = [total * count / sum(weights) for count in weights]
@@ -285,13 +312,15 @@ def render(episode: Episode, ffmpeg: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Render the five-part Mosiah storybook video series.")
     parser.add_argument("--check", action="store_true", help="Check local MP4 and narration tools.")
+    parser.add_argument("--episode", choices=[episode.slug for episode in EPISODES], help="Render only one episode.")
     args = parser.parse_args()
     ffmpeg = find_ffmpeg()
     if args.check:
         print(f"FFmpeg: {ffmpeg}\nPillow: {Image.__version__ if hasattr(Image, '__version__') else 'available'}\nVoice: {VOICE_NAME}")
         return
     OUT.mkdir(parents=True, exist_ok=True)
-    for episode in EPISODES:
+    episodes = [episode for episode in EPISODES if args.episode is None or episode.slug == args.episode]
+    for episode in episodes:
         print(f"Rendering {episode.title}...")
         folder = OUT / episode.slug
         folder.mkdir(parents=True, exist_ok=True)
