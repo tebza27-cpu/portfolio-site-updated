@@ -10,12 +10,45 @@
             <p class="business-hero-copy">A personal record of what I am learning about entrepreneurship, disciplined action, and the kind of person I need to become to build a sustainable business.</p>
             <div class="business-actions">
                 <a class="btn business-btn" href="{{ url_for('static', filename='14678_sgmb_book_eng.pdf') }}" target="_blank" rel="noopener noreferrer">Open course book</a>
-                <a class="btn business-btn-secondary" href="{{ url_for('static', filename='Chapter2_Assignment_Starting and Growing My Business - Spring Class.docx') }}">Read Chapter 2 assignment</a>
-                <a class="btn business-btn-secondary" href="{{ url_for('business_customers') }}">View Chapter 4 progress</a>
-                <a class="btn business-btn-secondary" href="{{ url_for('business_growth') }}">View Chapter 9 progress</a>
+                <a class="btn business-btn-secondary" href="#assignments">View completed assignments</a>
+                <a class="btn business-btn-secondary" href="{{ url_for('business_weeks') }}">Open weekly progress</a>
             </div>
         </div>
-            <div class="business-hero-mark" aria-hidden="true"><span>09</span><small>Current chapter</small></div>
+            <div class="business-hero-mark" aria-hidden="true"><span>11</span><small>Latest chapter</small></div>
+    </section>
+
+    <section class="business-section" id="assignments">
+        <div class="business-section-heading">
+            <p class="business-kicker">Completed coursework</p>
+            <h2>Assignments, in chapter order</h2>
+            <p>Each link opens the existing answered Word assignment. Chapter 9 remains marked as a draft where personal details and real-world results need confirmation.</p>
+        </div>
+        <div class="business-reflection-grid">
+            <article class="business-note business-note-dark">
+                <span class="business-note-number">CHAPTER 02</span>
+                <h3>Solving Unmet Customer Needs</h3>
+                <p>Identify customer problems, test an opportunity, and connect personal strengths to a business idea.</p>
+                <a class="btn business-btn" href="{{ url_for('static', filename='Chapter2_Assignment_Starting and Growing My Business - Spring Class.docx') }}">Open completed assignment</a>
+            </article>
+            <article class="business-note">
+                <span class="business-note-number">CHAPTER 04</span>
+                <h3>Finding Customers</h3>
+                <p>Define target customers, shape a clear business message, and choose ways to reach them.</p>
+                <a class="btn business-btn" href="{{ url_for('static', filename='images/Starting and Growing My Business - Chapter 4 Assignment - Finding Customers_completed_tasks.docx') }}">Open completed assignment</a>
+            </article>
+            <article class="business-note business-note-accent">
+                <span class="business-note-number">CHAPTER 09</span>
+                <h3>Growing My Business</h3>
+                <p>Choose a growth path, plan resources, build savings, and reduce unnecessary costs.</p>
+                <a class="btn business-btn" href="{{ url_for('static', filename='Starting and Growing My Business - Chapter 9 Assignment - Growing My Business - Completed.docx') }}">Open completed draft</a>
+            </article>
+            <article class="business-note business-note-dark">
+                <span class="business-note-number">CHAPTER 11</span>
+                <h3>Continually Improving My Business</h3>
+                <p>Use listening, documented workflows, compliance, hiring, and SMART goals to strengthen the business.</p>
+                <a class="btn business-btn" href="{{ url_for('static', filename='Starting and Growing My Business - Chapter 11 Assignment - Continually Improving My Business - Completed.docx') }}">Open completed assignment</a>
+            </article>
+        </div>
     </section>
 
     <section class="business-week-archive">
@@ -29,7 +62,7 @@
 
     <section class="business-section">
         <div class="business-section-heading">
-            <p class="business-kicker">This week's lesson</p>
+            <p class="business-kicker">Chapter 9 learning</p>
             <h2>Grow when the business is ready.</h2>
             <p>Chapter 9 explores three ways to grow: expand products or services, reach more of the right customers, or improve the offer to win a greater share of the market. Sustainable growth also means planning resources, saving consistently, and cutting costs that do not support the business.</p>
         </div>

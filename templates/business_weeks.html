@@ -17,7 +17,12 @@
         </div>
         <div class="week-button-grid">
             {% for week in weeks %}
-            <a class="week-button" href="{{ url_for(week.route) }}">
+            {% if week.document %}
+            {% set week_url = url_for('static', filename=week.document) %}
+            {% else %}
+            {% set week_url = url_for(week.route) %}
+            {% endif %}
+            <a class="week-button" href="{{ week_url }}">
                 <span class="week-button-label">{{ week.label }}</span>
                 <strong>{{ week.title }}</strong>
                 <span class="week-button-summary">{{ week.summary }}</span>

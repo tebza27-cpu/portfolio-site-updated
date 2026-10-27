@@ -863,8 +863,16 @@ BUSINESS_WEEKS = [
         'label': 'Chapter 9',
         'title': 'Growing My Business',
         'summary': 'Choose a growth path, evaluate resources, build savings, and reduce unnecessary business costs.',
-        'status': 'Current lesson',
+        'status': 'Complete',
         'route': 'business_growth'
+    },
+    {
+        'slug': 'chapter-11',
+        'label': 'Chapter 11',
+        'title': 'Continually Improving My Business',
+        'summary': 'Listen for guidance, document operations, check compliance, invest in employees, and set measurable goals.',
+        'status': 'Assignment complete',
+        'document': 'Starting and Growing My Business - Chapter 11 Assignment - Continually Improving My Business - Completed.docx'
     }
 ]
 
