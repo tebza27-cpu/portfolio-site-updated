@@ -42,6 +42,12 @@ body.home-theme .btn:hover { text-decoration:none; }
 .business-habits strong { color:#c47f55; font-family:Georgia,serif; font-size:1.45rem; margin-bottom:8px; }
 .business-habits span { color:#526168; font-size:.95rem; }
 .business-next-step { background:#e4eee9; border:0; border-radius:8px; padding:32px; margin:0 0 36px; }
+.business-final-presentation { background:#e4eee9; border-radius:8px; margin:42px 0 36px; padding:32px; }
+.business-final-presentation .business-section-heading { margin-bottom:24px; }
+.business-presentation-player { aspect-ratio:16/9; background:#101827; border-radius:4px; display:block; max-height:72vh; object-fit:contain; width:100%; }
+.business-presentation-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.business-presentation-actions .btn { margin:0; }
+.business-presentation-note { color:#526168; font-size:.9rem; margin:16px 0 0; }
 .business-week-archive { align-items:center; background:#fff; border:1px solid #d7dedb; border-radius:8px; display:flex; gap:28px; justify-content:space-between; margin:0 0 12px; padding:26px 30px; }
 .business-week-archive h2 { color:#183b3f; font-family:Georgia,serif; font-size:2rem; font-weight:400; margin:0 0 8px; }
 .business-week-archive p:last-child { color:#526168; margin:0; max-width:690px; }
@@ -57,7 +63,7 @@ body.home-theme .btn:hover { text-decoration:none; }
 .weekly-next-entry { border-left:3px solid #c47f55; margin-top:26px; padding:6px 0 6px 20px; }
 .weekly-next-entry h3 { color:#183b3f; margin:7px 0 5px; }
 .weekly-next-entry p { color:#526168; margin:0; }
-@media (max-width:760px) { .business-hero { grid-template-columns:1fr; padding:34px 26px; } .business-hero-mark { border-left:0; border-top:1px solid #6d918b; padding:20px 0 0; } .business-intro,.business-next-step,.daily-tip { grid-template-columns:1fr; gap:20px; } .business-reflection-grid,.business-habits { grid-template-columns:1fr; } .daily-tip-content { border-left:0; border-top:1px solid #b9c9c4; padding:20px 0 0; } }
+@media (max-width:760px) { .business-hero { grid-template-columns:1fr; padding:34px 26px; } .business-hero-mark { border-left:0; border-top:1px solid #6d918b; padding:20px 0 0; } .business-intro,.business-next-step,.daily-tip { grid-template-columns:1fr; gap:20px; } .business-reflection-grid,.business-habits { grid-template-columns:1fr; } .daily-tip-content { border-left:0; border-top:1px solid #b9c9c4; padding:20px 0 0; } .business-final-presentation { padding:22px; } .business-presentation-player { max-height:none; } }
 
 .business-progress-page { max-width: 980px; margin: 0 auto; color: #24313a; }
 .progress-back-link { display: inline-block; color: #183b3f; font-weight: 700; margin: 0 0 18px; }
