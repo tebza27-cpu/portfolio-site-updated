@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import argparse
+import getpass
 import os
 import subprocess
 import tempfile
@@ -67,12 +69,24 @@ def synthesize(text: str, key: str, region: str, destination: Path) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Generate the narrated business presentation using Azure Speech.")
+    parser.add_argument(
+        "--prompt",
+        action="store_true",
+        help="Prompt locally for missing Azure credentials; the key is entered without echo.",
+    )
+    args = parser.parse_args()
     key = os.environ.get("AZURE_SPEECH_KEY", "").strip()
     region = os.environ.get("AZURE_SPEECH_REGION", "").strip()
+    if args.prompt:
+        if not key:
+            key = getpass.getpass("Azure Speech key (input hidden): ").strip()
+        if not region:
+            region = input("Azure Speech region: ").strip()
     if not key or not region:
         raise SystemExit(
-            "Set AZURE_SPEECH_KEY and AZURE_SPEECH_REGION in your local environment, "
-            "then rerun this script. Do not paste the key into chat or source code."
+            "Set AZURE_SPEECH_KEY and AZURE_SPEECH_REGION locally, or run this script "
+            "with --prompt. Do not paste the key into chat or source code."
         )
     if not SOURCE_VIDEO.is_file():
         raise FileNotFoundError(SOURCE_VIDEO)

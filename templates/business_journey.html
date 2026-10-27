@@ -110,12 +110,12 @@
             <h2>Business presentation</h2>
             <p>A five-minute pitch covering the customer need, offer, target market, acquisition, resources, economics, and next steps. The video starts muted to allow browser autoplay; use the player controls to turn sound on or pause.</p>
             {% if narration_available %}
-            <p class="business-presentation-note">Narrated with Adam Multilingual (Azure Neural TTS).</p>
+            <p class="business-presentation-note">Narrated with Adam Multilingual (Azure Neural TTS). Press play to start with sound.</p>
             {% else %}
             <p class="business-presentation-note">Voice narration is not generated yet; this video is currently silent.</p>
             {% endif %}
         </div>
-        <video class="business-presentation-player" controls autoplay muted playsinline preload="metadata" poster="{{ url_for('static', filename='business_presentation_investor_31_oct_2026_poster.png') }}">
+        <video class="business-presentation-player" controls {% if not narration_available %}autoplay muted{% endif %} playsinline preload="metadata" poster="{{ url_for('static', filename='business_presentation_investor_31_oct_2026_poster.png') }}">
             {% if narration_available %}
             <source src="{{ url_for('static', filename='business_presentation_investor_31_oct_2026_narrated.mp4') }}" type="video/mp4">
             {% else %}
