@@ -839,7 +839,11 @@ def mosiah_media(episode_slug, filename):
 
 @app.route('/business-journey')
 def business_journey():
-    return render_template('business_journey.html')
+    narrated_video = Path(app.static_folder) / 'business_presentation_investor_31_oct_2026_narrated.mp4'
+    return render_template(
+        'business_journey.html',
+        narration_available=narrated_video.is_file()
+    )
 
 BUSINESS_WEEKS = [
     {
