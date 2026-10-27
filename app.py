@@ -871,8 +871,8 @@ BUSINESS_WEEKS = [
         'label': 'Chapter 11',
         'title': 'Continually Improving My Business',
         'summary': 'Listen for guidance, document operations, check compliance, invest in employees, and set measurable goals.',
-        'status': 'Assignment complete',
-        'document': 'Starting and Growing My Business - Chapter 11 Assignment - Continually Improving My Business - Completed.docx'
+        'status': 'Complete',
+        'route': 'business_improvement'
     }
 ]
 
@@ -948,6 +948,10 @@ def business_customers():
 @app.route('/business-journey/growth')
 def business_growth():
     return render_template('business_growth.html')
+
+@app.route('/business-journey/improvement')
+def business_improvement():
+    return render_template('business_improvement.html')
 
 @app.route('/general-conference/october-2026')
 def october_2026_conference():
